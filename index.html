@@ -311,6 +311,39 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Oculta a barra de progresso do vídeo em navegadores baseados em WebKit (como Brave/Chrome) */
+        video::-webkit-media-controls-timeline-container {
+            display: none !important;
+        }
+        
+        /* Opcional: se precisar esconder também o indicador de tempo, comente ou ajuste conforme necessário
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+        */
+
+        /* Oculta a barra de progresso do vídeo */
+        video::-webkit-media-controls-timeline-container {
+            display: none !important;
+        }
+
+        /* Oculta também os indicadores de tempo (atual e restante) */
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+
+        /* Tente forçar a ocultação da barra de progresso e dos indicadores de tempo com propriedades adicionais */
+        video::-webkit-media-controls-timeline-container,
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
     <!-- Código de configuração do player removido -->
 </head>
@@ -343,8 +376,7 @@
       </div>
       <div class="grid-row">
         <div>12:30</div>
-        <div>Tempo & Dinheiro | AO VIVO</div>
-      </div>
+        <div>Tempo & Dinheiro | AO VIVO</      </div>
       <div class="grid-row">
         <div>14:00</div>
         <div>Marcas E Maquinas</div>
@@ -359,6 +391,26 @@
       Desenvolvido por <a href="https://www.linkedin.com/in/luizstsantos/" target="_blank">Luiz Stormorwski</a>
     </p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('player');
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource('https://canalsolofertil.live/memfs/dd19a992-2e7c-4ffd-97f6-fde810284756.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play();
+          // O seletor de qualidade foi removido
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://canalsolofertil.live/memfs/dd19a992-2e7c-4ffd-97f6-fde810284756.m3u8';
+        video.addEventListener('loadedmetadata', function() {
+          video.play();
+        });
+      }
+    });
+  </script>
   <script>
     // Aguarda o carregamento completo do DOM
     document.addEventListener('DOMContentLoaded', function() {
