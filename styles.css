@@ -15,7 +15,7 @@ body {
    ============================= */
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Ajusta para espaço entre logo e navegação */
     align-items: center;
     height: 13vh;
     padding: 0 15px;
@@ -37,12 +37,50 @@ header img {
     transition: max-height 0.3s ease;
 }
 
+/* Posicionamento responsivo da logo */
+.logo {
+    margin-left: 20px; /* Posição padrão em telas menores */
+}
+
+/* Em telas grandes, você pode reposicionar a logo */
+@media (min-width: 1024px) {
+    .logo {
+        margin-left: 20px; /* Ajusta a margem para evitar corte */
+    }
+    .nav-desktop ul {
+        margin-right: 20px; /* Ajusta a margem para evitar corte */
+    }
+}
+
+/* Ajuste para evitar corte dos botões de navegação em telas largas */
+@media (min-width: 1024px) {
+    header {
+        overflow: visible; /* Permite a exibição completa dos itens */
+    }
+    .nav-desktop ul {
+        flex-wrap: nowrap; /* Mantém todos os itens em linha única */
+    }
+}
+
+/* Em telas grandes - permite que o header se ajuste ao conteúdo */
+@media (min-width: 1024px) {
+    header {
+        flex-wrap: wrap; /* Permite quebra interna se necessário */
+        height: auto;   /* Remove altura fixa para se ajustar ao conteúdo */
+        padding: 15px 20px; /* Ajusta preenchimento */
+        overflow: hidden; /* Garante que nada fique fora */
+    }
+    .nav-desktop ul {
+        flex-wrap: nowrap; /* Tenta manter os itens numa única linha */
+    }
+}
+
 /* =============================
    Versões para Celulares - (viewport com largura até 600px)
    ============================= */
 @media (max-width: 600px) {
     header {
-        height: 10vh;
+        height: 13vh;
     }
     header img {
         max-height: 90%;
@@ -200,4 +238,219 @@ video::-webkit-media-controls-time-remaining-display {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* Estilo dos links de navegação com indicador hover */
+nav.nav-desktop ul li a {
+    position: relative;
+    padding-left: 20px; /* Espaço para a bolinha */
+    transition: all 0.3s ease;
+}
+
+/* Pseudo-elemento para a bolinha */
+nav.nav-desktop ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ao passar o mouse, exibir a bolinha verde */
+nav.nav-desktop ul li a:hover::before {
+    width: 8px;
+    height: 8px;
+    background-color: #00FF00;
+}
+
+/* Estilo para link da página ativa: bolinha amarela */
+nav.nav-desktop ul li a.active::before {
+    width: 8px;
+    height: 8px;
+    background-color: #FFFF00; /* bolinha amarela */
+}
+
+/* Estilos gerais para o header: mantém o layout centralizado */
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+/* Centraliza a logo e a desloca ligeiramente para a esquerda */
+.logo {
+    margin: 0 auto 15px auto;
+    transform: translateX(-40px); /* ajuste pequeno para a esquerda */
+}
+
+.logo img {
+    max-height: 90px;
+    transition: max-height 0.3s ease;
+}
+
+/* Estilos dos botões de navegação */
+.nav-desktop ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-desktop ul li a {
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+    padding-left: 20px; /* Espaço para a bolinha */
+    transition: all 0.3s ease;
+}
+
+/* Indicador da página ativa (bolinha amarela) */
+.nav-desktop ul li a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #FFFF00;
+    border-radius: 50%;
+}
+
+/* Ícone de hambúrguer - inicialmente oculto */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    /* Adiciona flex dentro do header */
+    align-self: center;
+    position: relative; /* Garante que o ícone fique dentro do header */
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    background-color: #FFF;
+}
+
+/* Menu lateral oculto vindo da esquerda */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;  /* Altera para a esquerda */
+    height: 100%;
+    width: 250px;
+    background: #333;
+    color: #FFF;
+    padding: 20px;
+    transform: translateX(-100%);  /* Inicia fora da tela à esquerda */
+    transition: transform 0.3s ease;
+    z-index: 1100;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+/* Botão para fechar o side-menu */
+.side-menu .close-menu {
+    background: transparent;
+    border: none;
+    color: #FFF;
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin-bottom: 15px;
+}
+
+/* Estilo dos links do menu lateral com indicador similar */
+.side-menu ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    padding-left: 20px;  /* Espaço para a bolinha */
+    transition: all 0.3s ease;
+}
+
+.side-menu ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Exibe bolinha verde ao passar o mouse */
+.side-menu ul li a:hover::before {
+    width: 8px;
+    height: 8px;
+    background-color: #00FF00;
+}
+
+/* Exibe bolinha amarela para link ativo */
+.side-menu ul li a.active::before {
+    width: 8px;
+    height: 8px;
+    background-color: #FFFF00;
+    border-radius: 50%;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .logo img {
+        max-height: 70px; /* Diminui a logo em telas menores */
+    }
+    .nav-desktop ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-desktop ul li {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .logo {
+        width: 100%;           /* Força o container a ocupar toda a largura */
+        display: flex;         /* Usa flexbox no container */
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        transform: none;       /* Remove qualquer deslocamento */
+        margin: 20px auto 15px auto; /* Garante margem automática e desce a logo */
+    }
+    /* Oculta a navegação desktop */
+    nav.nav-desktop {
+        display: none;
+    }
+    /* Exibe o ícone de hambúrguer à esquerda */
+    .menu-toggle {
+        display: flex;
+        position: absolute; /* Garante que o ícone fique dentro do header */
+        top: 45%;
+        left: 35px; /* Ajusta a posição mais para a direita */
+        transform: translateY(-50%); /* Centraliza verticalmente */
+    }
+    header {
+        overflow: visible; /* Permite que o ícone seja exibido */
+    }
 }

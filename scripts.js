@@ -31,4 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
             row.style.display = 'none';
         }
     });
+
+    // Controle do menu lateral
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+    const closeMenu = document.querySelector('.close-menu');
+
+    menuToggle.addEventListener('click', function() {
+        sideMenu.classList.add('open');
+    });
+
+    closeMenu.addEventListener('click', function() {
+        sideMenu.classList.remove('open');
+    });
 });
