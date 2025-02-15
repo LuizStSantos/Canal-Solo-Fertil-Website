@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página -->
+    <title>Contato - Canal Solo Fértil</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/img/icon.png">
+    
+    <!-- Meta descrição -->
+    <meta name="description" content="Entre em contato com o Canal Solo Fértil para dúvidas, sugestões ou parcerias.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contato - Canal Solo Fértil">
+    <meta property="og:description" content="Entre em contato com o Canal Solo Fértil para dúvidas, sugestões ou parcerias.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://canalsolofertil.com.br/contato.html">
+    <meta property="og:image" content="src/img/icon.png">
+    
+    <!-- Link para CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <img src="src/img/logo.png" alt="Logo Canal Solo Fértil">
+    </div>
+    <nav class="nav-desktop">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="contato.html" class="active">Contato</a></li>
+      </ul>
+    </nav>
+    <!-- Ícone de hambúrguer para telas pequenas -->
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Menu lateral (side menu) -->
+  <div class="side-menu">
+    <button class="close-menu">&times;</button>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="noticias.html">Notícias</a></li>
+      <li><a href="contato.html" class="active">Contato</a></li>
+    </ul>
+  </div>
+  <div class="content" style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 20vh);">
+    <!-- Formulário de contato -->
+    <div class="contact-form-container" style="width: 90%; max-width: 400px; background-color: #333; padding: 30px; border-radius: 8px; color: #fff;">
+      <h1 style="text-align: center;">Entre em Contato</h1>
+      <form id="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; overflow-y: auto;"></textarea>
+        
+        <button type="submit" style="padding: 10px 20px; border-radius: 5px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">Enviar</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>
+      Copyright © 2025 - Canal Solo Fértil.
+      <br>
+      Desenvolvido por <a href="https://www.linkedin.com/in/luizstsantos/" target="_blank">Luiz Stormorwski</a>
+    </p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="scripts.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const mensagem = document.getElementById('mensagem').value;
+      
+      fetch('enviar_contato.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nome, email, mensagem })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Mensagem enviada com sucesso!');
+        } else {
+          alert('Ocorreu um erro ao enviar a mensagem.');
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro ao enviar a mensagem.');
+      });
+    });
+  </script>
+</body>
+</html>

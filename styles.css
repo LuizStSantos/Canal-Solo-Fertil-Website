@@ -446,8 +446,8 @@ nav.nav-desktop ul li a.active::before {
     .menu-toggle {
         display: flex;
         position: absolute; /* Garante que o ícone fique dentro do header */
-        top: 45%;
-        left: 35px; /* Ajusta a posição mais para a direita */
+        top: 50%;
+        left: 20px; /* Ajusta a posição mais para a direita */
         transform: translateY(-50%); /* Centraliza verticalmente */
     }
     header {
