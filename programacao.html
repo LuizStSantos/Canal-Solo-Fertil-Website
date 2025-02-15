@@ -5,71 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Título da página -->
-    <title>Canal Solo Fértil</title>
+    <title>Programação - Canal Solo Fértil</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://i.ibb.co/kggs4P27/logo-Canal-Solo-Fertil-01.png">
+    <link rel="icon" type="image/png" href="src/img/icon.png">
     
     <!-- Meta descrição -->
-    <meta name="description" content="Bem-vindo ao Canal Solo Fértil, seu espaço para dicas e novidades sobre fertilizantes e cultivos.">
+    <meta name="description" content="Confira a programação completa do Canal Solo Fértil.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Canal Solo Fértil">
-    <meta property="og:description" content="Bem-vindo ao Canal Solo Fértil, seu espaço para dicas e novidades sobre fertilizantes e cultivos.">
+    <meta property="og:title" content="Programação - Canal Solo Fértil">
+    <meta property="og:description" content="Confira a programação completa do Canal Solo Fértil.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://canalsolofertil.com.br">
-    <meta property="og:image" content="https://i.ibb.co/kggs4P27/logo-Canal-Solo-Fertil-01.png">
+    <meta property="og:url" content="https://canalsolofertil.com.br/programacao.html">
+    <meta property="og:image" content="src/img/icon.png">
     
     <!-- Link para CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
+    <!-- ...existing header code... -->
     <div class="logo">
-      <img src="https://i.ibb.co/bjnWfY9D/logo-Canal-Solo-Fertil-05.png" alt="Logo Canal Solo Fértil">
+      <img src="src/img/logo.png" alt="Logo Canal Solo Fértil">
     </div>
     <nav class="nav-desktop">
       <ul>
-        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="index.html">Início</a></li>
         <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="programacao.html">Programação</a></li>
+        <li><a href="programacao.html" class="active">Programação</a></li>
         <li><a href="noticias.html">Notícias</a></li>
         <li><a href="contato.html">Contato</a></li>
       </ul>
     </nav>
-    <!-- Ícone de hambúrguer para telas pequenas -->
+    <!-- Adiciona o botão do menu -->
     <div class="menu-toggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </header>
-
+  
   <!-- Menu lateral (side menu) -->
   <div class="side-menu">
     <button class="close-menu">&times;</button>
     <ul>
-      <li><a href="index.html" class="active">Início</a></li>
+      <li><a href="index.html">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="programacao.html">Programação</a></li>
+      <li><a href="programacao.html" class="active">Programação</a></li>
       <li><a href="noticias.html">Notícias</a></li>
       <li><a href="contato.html">Contato</a></li>
     </ul>
   </div>
-  <div class="content">
-    <div class="player-container">
-      <video id="player" controls autoplay>
-        <source src="https://canalsolofertil.live/memfs/dd19a992-2e7c-4ffd-97f6-fde810284756.m3u8" type="application/x-mpegURL">
-        Seu navegador não suporta a reprodução de vídeo ao vivo.
-      </video>
-    </div>
-    <!-- Sistema de Grade de Programação - Inserção Manual -->
+  
+  <div class="content" style="padding-bottom: 80px;">
+    <!-- Sistema de Grade de Programação sem remoção de linhas passadas -->
     <div class="schedule-grid">
       <div class="grid-header">
         <div>Horário</div>
         <div>Programa</div>
       </div>
-      <!-- Insira manualmente as linhas da grade abaixo -->
+      <!-- Exemplo de linhas da grade -->
       <div class="grid-row">
         <div>08:00</div>
         <div>Sucesso No Campo</div>
@@ -86,17 +82,29 @@
         <div>14:00</div>
         <div>Marcas E Maquinas</div>
       </div>
-      <!-- Adicione mais linhas de acordo com a programação desejada -->
+      <!-- Adicione mais linhas conforme necessário -->
     </div>
   </div>
+  
   <footer>
+    <!-- ...existing footer code... -->
     <p>
       Copyright © 2025 - Canal Solo Fértil.
       <br>
       Desenvolvido por <a href="https://www.linkedin.com/in/luizstsantos/" target="_blank">Luiz Stormorwski</a>
     </p>
   </footer>
+  
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="scripts.js"></script>
+  <!-- Script para garantir que todas as linhas da grade fiquem visíveis -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var rows = document.querySelectorAll('.schedule-grid .grid-row');
+      rows.forEach(function(row) {
+        row.style.display = 'grid'; // restaura a exibição conforme o grid
+      });
+    });
+  </script>
 </body>
 </html>
