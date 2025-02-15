@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("https://i.ibb.co/ksJJNYVR/6773352.jpg") no-repeat center center fixed; /* Define o fundo */
+    background: url("src/img/background.jpg") no-repeat center center fixed; /* Define o fundo */
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
