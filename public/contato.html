@@ -1,0 +1,31 @@
+<!-- ...existing head code... -->
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    
+    fetch('../includes/enviar_contato.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nome, email, mensagem })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Mensagem enviada com sucesso!');
+      } else {
+        alert('Ocorreu um erro ao enviar a mensagem.');
+      }
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+      alert('Ocorreu um erro ao enviar a mensagem.');
+    });
+  });
+</script>
+<!-- ...existing footer code... -->

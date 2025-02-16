@@ -7,9 +7,9 @@ header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json");
 
 // Inclua o autoload do Composer (assegure-se de ter executado "composer require phpmailer/phpmailer")
-require 'vendor/autoload.php';
-require __DIR__ . '/../Config/config.php';  // Configurações movidas para fora da raiz pública
-$config = include __DIR__ . '/../Config/config.php';
+require '../vendor/autoload.php';
+require '../config/config.php';  // Configurações movidas para fora da raiz pública
+$config = include '../config/config.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

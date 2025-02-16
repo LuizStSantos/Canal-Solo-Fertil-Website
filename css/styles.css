@@ -4,10 +4,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("src/img/background.jpg") no-repeat center center fixed; /* Define o fundo */
+    background: url("../src/img/background.jpg") no-repeat center center fixed; /* Define o fundo */
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
 }
 
 /* =============================
@@ -109,6 +108,69 @@ header img {
         margin-top: 10px;
         width: 95%;
     }
+
+    .about-box {
+        width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
+        padding: 20px;
+        margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+    }
+
+    .schedule-header {
+        width: 100%; /* Ajusta a largura para evitar corte */
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; /* Ajusta a direção para evitar sobreposição */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+    }
+
+    .schedule-header div {
+        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
+        margin-bottom: 5px; /* Adiciona margem inferior para separação */
+    }
+
+    .schedule-grid {
+        width: 100%; /* Ajusta a largura para evitar corte */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 601px) {
+    .schedule-header {
+        width: 42%; /* Ajusta a largura para evitar corte */
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row; /* Ajusta a direção para evitar sobreposição */
+        justify-content: space-between; /* Distribui espaço entre os itens */
+        background-color: #4CAF50; /* Adiciona cor de fundo */
+        color: white; /* Adiciona cor do texto */
+        border-radius: 5px; /* Adiciona borda arredondada */
+    }
+
+    .schedule-header .horario {
+        font-size: 1.2em; /* Ajusta o tamanho da fonte para telas maiores */
+        margin-bottom: 0; /* Remove margem inferior */
+        flex: 1; /* Garante que os itens ocupem espaço igual */
+        text-align: left; /* Alinha o texto à esquerda */
+        padding-left: 10px; /* Adiciona padding à esquerda */
+    }
+
+    .schedule-header .program {
+        font-size: 1.2em; /* Ajusta o tamanho da fonte para telas maiores */
+        margin-bottom: 0; /* Remove margem inferior */
+        flex: 1; /* Garante que os itens ocupem espaço igual */
+        text-align: right; /* Alinha o texto à direita */
+        padding-right: 500px; /* Adiciona padding à direita */
+    }
+
+    .schedule-grid {
+        width: 100%; /* Ajusta a largura para evitar corte */
+        padding: 20px;
+        box-sizing: border-box;
+    }
 }
 
 /* Footer */
@@ -190,6 +252,30 @@ video {
     margin-right: auto;
     max-height: 250px;
     overflow-y: auto;
+    scrollbar-width: thin; /* Para navegadores Firefox */
+    scrollbar-color: #4CAF50 #333; /* Para navegadores Firefox */
+}
+
+/* Estilo personalizado para a barra de rolagem em navegadores WebKit (Chrome, Safari) */
+.schedule-grid::-webkit-scrollbar {
+    width: 12px;
+}
+
+.schedule-grid::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey; /* Adiciona sombra interna */
+}
+
+.schedule-grid::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey; /* Adiciona sombra interna */
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
+}
+
+.schedule-grid::-webkit-scrollbar-thumb:hover {
+    background: #388E3C;
 }
 
 /* Cabeçalho e Linhas da Grade */
@@ -458,9 +544,12 @@ nav.nav-desktop ul li a.active::before {
 /* Estilos movidos do contato.html */
 .contact-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: calc(100vh - 20vh);
+    justify-content: center;
+    margin-top: 14vh;  /* Espaço para o header fixo */
+    margin-bottom: 7vh; /* Espaço para o footer fixo */
+    padding: 20px;
 }
 
 .contact-form-container {
@@ -508,4 +597,55 @@ nav.nav-desktop ul li a.active::before {
     border-radius: 8px;
     color: #fff;
     margin: auto;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+    .about-box {
+        width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
+        padding: 20px;
+        margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+    }
+
+    .schedule-header {
+        width: 100%; /* Ajusta a largura para evitar corte */
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row; /* Ajusta a direção para evitar sobreposição */
+        justify-content: space-between; /* Distribui espaço entre os itens */
+        background-color: #4CAF50; /* Adiciona cor de fundo */
+        color: white; /* Adiciona cor do texto */
+        border-radius: 5px; /* Adiciona borda arredondada */
+    }
+
+    .schedule-header .horario,
+    .schedule-header .program {
+        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
+        margin-bottom: 0; /* Remove margem inferior */
+        flex: 1; /* Garante que os itens ocupem espaço igual */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .schedule-header .horario {
+        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
+        margin-bottom: 0; /* Remove margem inferior */
+        flex: 1; /* Garante que os itens ocupem espaço igual */
+        text-align: left; /* Alinha o texto à esquerda */
+        padding-left: 10px; /* Adiciona padding à esquerda */
+    }
+
+    .schedule-header .program {
+        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
+        margin-bottom: 0; /* Remove margem inferior */
+        flex: 1; /* Garante que os itens ocupem espaço igual */
+        text-align: right; /* Alinha o texto à direita */
+        padding-right: 170px; /* Adiciona padding à direita */
+    }
+
+    .schedule-grid {
+        width: 100%; /* Ajusta a largura para evitar corte */
+        padding: 10px;
+        box-sizing: border-box;
+    }
 }

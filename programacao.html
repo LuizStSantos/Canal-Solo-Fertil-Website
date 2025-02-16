@@ -21,7 +21,7 @@
     <meta property="og:image" content="src/img/icon.png">
     
     <!-- Link para CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -58,31 +58,15 @@
     </ul>
   </div>
   
-  <div class="content" style="padding-bottom: 80px;">
-    <!-- Sistema de Grade de Programação sem remoção de linhas passadas -->
-    <div class="schedule-grid">
-      <div class="grid-header">
-        <div>Horário</div>
-        <div>Programa</div>
-      </div>
-      <!-- Exemplo de linhas da grade -->
-      <div class="grid-row">
-        <div>08:00</div>
-        <div>Sucesso No Campo</div>
-      </div>
-      <div class="grid-row">
-        <div>12:00</div>
-        <div>Sucesso No Campo | AO VIVO</div>
-      </div>
-      <div class="grid-row">
-        <div>12:30</div>
-        <div>Tempo &amp; Dinheiro | AO VIVO</div>
-      </div>
-      <div class="grid-row">
-        <div>14:00</div>
-        <div>Marcas E Maquinas</div>
-      </div>
-      <!-- Adicione mais linhas conforme necessário -->
+  <div class="content" style="padding-bottom: 60px;">
+    <!-- New header box for schedule labels -->
+    <div class="schedule-header">
+      <div>Horário</div>
+      <div class="program">Programa</div>
+    </div>
+    <!-- Sistema de Grade de Programação - agora dinâmico (removed the previous grid-header here) -->
+    <div class="schedule-grid" style="padding: 20px; min-height: 500px;">
+      <div id="schedule-content"></div>
     </div>
   </div>
   
@@ -96,15 +80,6 @@
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script src="scripts.js"></script>
-  <!-- Script para garantir que todas as linhas da grade fiquem visíveis -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var rows = document.querySelectorAll('.schedule-grid .grid-row');
-      rows.forEach(function(row) {
-        row.style.display = 'grid'; // restaura a exibição conforme o grid
-      });
-    });
-  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>

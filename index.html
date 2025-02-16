@@ -21,7 +21,7 @@
     <meta property="og:image" content="https://i.ibb.co/kggs4P27/logo-Canal-Solo-Fertil-01.png">
     
     <!-- Link para CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -63,30 +63,13 @@
         Seu navegador não suporta a reprodução de vídeo ao vivo.
       </video>
     </div>
-    <!-- Sistema de Grade de Programação - Inserção Manual -->
+    <!-- Sistema de Grade de Programação - Inserção via JSON -->
     <div class="schedule-grid">
       <div class="grid-header">
         <div>Horário</div>
         <div>Programa</div>
       </div>
-      <!-- Insira manualmente as linhas da grade abaixo -->
-      <div class="grid-row">
-        <div>08:00</div>
-        <div>Sucesso No Campo</div>
-      </div>
-      <div class="grid-row">
-        <div>12:00</div>
-        <div>Sucesso No Campo | AO VIVO</div>
-      </div>
-      <div class="grid-row">
-        <div>12:30</div>
-        <div>Tempo &amp; Dinheiro | AO VIVO</div>
-      </div>
-      <div class="grid-row">
-        <div>14:00</div>
-        <div>Marcas E Maquinas</div>
-      </div>
-      <!-- Adicione mais linhas de acordo com a programação desejada -->
+      <div id="schedule-content"></div>
     </div>
   </div>
   <footer>
@@ -97,6 +80,6 @@
     </p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script src="scripts.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
