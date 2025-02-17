@@ -106,7 +106,13 @@ header img {
     }
     .schedule-grid {
         margin-top: 10px;
-        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;  /* mesma largura do player */
+        padding: 5px;
+        font-size: 0.7rem;
+        max-height: 450px; /* Limita a exibição a até 10 programas */
+        overflow-y: auto; /* Habilita rolagem vertical se houver mais itens */
     }
 
     .about-box {
@@ -127,12 +133,6 @@ header img {
     .schedule-header div {
         font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
         margin-bottom: 5px; /* Adiciona margem inferior para separação */
-    }
-
-    .schedule-grid {
-        width: 100%; /* Ajusta a largura para evitar corte */
-        padding: 10px;
-        box-sizing: border-box;
     }
 }
 
@@ -253,6 +253,7 @@ video {
     overflow-x: auto; /* permite rolagem horizontal */
     white-space: nowrap; /* mantém o texto em uma única linha */
     max-height: none;
+    transition: all 0.3s ease; /* transição suave adicionada */
 }
 
 /* Estilo personalizado para a barra de rolagem em navegadores WebKit (Chrome, Safari) */
