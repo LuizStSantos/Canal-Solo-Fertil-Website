@@ -163,7 +163,7 @@ header img {
         margin-bottom: 0; /* Remove margem inferior */
         flex: 1; /* Garante que os itens ocupem espaço igual */
         text-align: right; /* Alinha o texto à direita */
-        padding-right: 500px; /* Adiciona padding à direita */
+        padding-right: 10px; /* alterado de 500px */
     }
 
     .schedule-grid {
@@ -206,7 +206,7 @@ footer a:hover {
 /* Content */
 .content {
     position: absolute;
-    top: 13vh;
+    top: 20vh; /* alterado de 13vh para 20vh para abaixar o conteúdo */
     bottom: 7vh;
     left: 0;
     right: 0;
@@ -250,10 +250,9 @@ video {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    max-height: 250px;
-    overflow-y: auto;
-    scrollbar-width: thin; /* Para navegadores Firefox */
-    scrollbar-color: #4CAF50 #333; /* Para navegadores Firefox */
+    overflow-x: auto; /* permite rolagem horizontal */
+    white-space: nowrap; /* mantém o texto em uma única linha */
+    max-height: none;
 }
 
 /* Estilo personalizado para a barra de rolagem em navegadores WebKit (Chrome, Safari) */
@@ -285,13 +284,13 @@ video {
     grid-template-columns: 1fr 3fr;
     padding: 8px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    white-space: nowrap; /* mantém o texto em uma única linha */
 }
 
 .schedule-grid .grid-header {
-    position: sticky;
-    top: 0;
+    position: static;
+    z-index: auto;
     background: linear-gradient(90deg, #333, #555);
-    z-index: 10;
     font-weight: bold;
 }
 
@@ -651,4 +650,10 @@ nav.nav-desktop ul li a.active::before {
         padding: 10px;
         box-sizing: border-box;
     }
+}
+
+/* Override para scheduler do index não ter scroll */
+.index .schedule-grid {
+    overflow-x: visible; /* remove rolagem horizontal */
+    white-space: normal; /* permite que o conteúdo quebre em linhas */
 }
