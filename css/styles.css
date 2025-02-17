@@ -553,12 +553,15 @@ nav.nav-desktop ul li a.active::before {
 }
 
 .contact-form-container {
+    /* Manter modelo original, apenas reduzir dimensões */
     width: 90%;
-    max-width: 400px;
+    max-width: 350px; /* Reduzido de 400px */
     background-color: #333;
-    padding: 30px;
+    padding: 15px;    /* Reduzido de 30px */
     border-radius: 8px;
     color: #fff;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 /* Opcional: Estilização do formulário de contato */
