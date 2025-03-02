@@ -122,6 +122,16 @@ header img {
         width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
         padding: 20px;
         margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+        flex-direction: column;
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    .about-image {
+        order: 2;
+        margin: 20px auto 0; /* Adjust margin: 20px top, auto left/right, 0 bottom */
     }
 
     .schedule-header {
@@ -597,6 +607,10 @@ nav.nav-desktop ul li a.active::before {
 
 /* Estilos para a box do Sobre, similar ao container de contato */
 .about-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 90%;
     max-width: 800px;
     background-color: #333;
@@ -606,12 +620,44 @@ nav.nav-desktop ul li a.active::before {
     margin: auto;
 }
 
+/* Style for the image container inside about-box */
+.about-image {
+    flex: 0 0 44%;
+    margin-right: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Style for the text content inside about-box */
+.about-content {
+    flex: 1;
+}
+
+.about-content h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+    text-align: left;
+}
+
 /* Ajustes para telas pequenas */
 @media (max-width: 600px) {
     .about-box {
         width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
         padding: 20px;
         margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+        flex-direction: column;
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    .about-image {
+        order: 2;
+        margin: 20px auto 0; /* Adjust margin: 20px top, auto left/right, 0 bottom */
     }
 
     .schedule-header {
@@ -661,4 +707,11 @@ nav.nav-desktop ul li a.active::before {
 .index .schedule-grid {
     overflow-x: visible; /* remove rolagem horizontal */
     white-space: normal; /* permite que o conteúdo quebre em linhas */
+}
+
+.rounded-image img {
+  width: 44%; /* Same width as the green box */
+  display: block;
+  margin: 20px auto; /* Center the image with similar vertical spacing */
+  border-radius: 5px; /* Rounded borders similar to the about box */
 }
