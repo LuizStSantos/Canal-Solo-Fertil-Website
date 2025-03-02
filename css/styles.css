@@ -230,13 +230,14 @@ footer a:hover {
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     margin: auto;
+    flex-shrink: 0; /* Prevents the player from shrinking in a flex layout */
 }
 
 /* Video */
 video {
     width: 100%;
     aspect-ratio: 16 / 9;
-    display: block;
+    display: block; /* Ensure video renders as block-level element */
     object-fit: contain;
 }
 
