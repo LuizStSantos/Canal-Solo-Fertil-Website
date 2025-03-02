@@ -96,9 +96,9 @@ header img {
         font-size: 1rem;
     }
     .player-container {
-        width: 95%;
-        max-width: 100%;
-        margin-bottom: -20px; /* Push the player container closer to the scheduler */
+        width: 100%;  /* Modify this value as needed */
+        max-width: 100%;  /* Change if you want a different limit */
+        --player-height: calc(100vw * 9 / 16); /* Set a custom property on the player container using its aspect ratio (assuming full width) */
     }
     video {
         width: 100%;
@@ -106,16 +106,16 @@ header img {
         object-fit: contain;
     }
     .schedule-grid {
-        position: static; /* Remove any relative positioning */
-        top: auto;        /* Remove top offset */
-        margin-top: 10px;  /* Small positive gap after the player */
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 95%;  /* mesma largura do player */
+        width: 100%;  /* mesma largura do player */
+        max-width: 100%;
         padding: 5px;
         font-size: 0.7rem;
-        max-height: 450px; /* Limita a exibição a até 10 programas */
+        max-height: var(--player-height); /* Apply the same height to the scheduler box */
         overflow-y: auto; /* Habilita rolagem vertical se houver mais itens */
+        margin-bottom: 100px; /* Add extra bottom margin to provide spacing */
     }
 
     .about-box {
@@ -136,12 +136,6 @@ header img {
     .schedule-header div {
         font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
         margin-bottom: 5px; /* Adiciona margem inferior para separação */
-    }
-
-    /* Adjust .content to align items to the top with minimal gap */
-    .content {
-        justify-content: flex-start;
-        gap: 0; /* Reduce gap to zero */
     }
 }
 
