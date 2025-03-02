@@ -141,6 +141,7 @@ header img {
         display: flex;
         flex-direction: column; /* Ajusta a direção para evitar sobreposição */
         align-items: flex-start; /* Alinha os itens à esquerda */
+        min-height: 50px;
     }
 
     .schedule-header div {
@@ -161,6 +162,7 @@ header img {
         background-color: #4CAF50; /* Adiciona cor de fundo */
         color: white; /* Adiciona cor do texto */
         border-radius: 5px; /* Adiciona borda arredondada */
+        min-height: 50px;
     }
 
     .schedule-header .horario {
