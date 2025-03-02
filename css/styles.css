@@ -304,6 +304,14 @@ video {
     white-space: nowrap; /* mantém o texto em uma única linha */
 }
 
+/* Make the grid-header remain static while the schedule rows scroll */
+.schedule-grid .grid-header {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, #333, #555); /* ensures consistent background */
+    z-index: 10; /* stays above the scrolling rows */
+}
+
 .schedule-grid .grid-header {
     position: static;
     z-index: auto;
