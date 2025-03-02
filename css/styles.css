@@ -80,6 +80,8 @@ header img {
 @media (max-width: 600px) {
     header {
         height: 13vh;
+        overflow: hidden; /* Ensure any overflow is clipped */
+        position: relative;
     }
     header img {
         max-height: 90%;
@@ -147,6 +149,42 @@ header img {
     .schedule-header div {
         font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
         margin-bottom: 5px; /* Adiciona margem inferior para separação */
+    }
+
+    .logo {
+        max-height: 13vh; /* Match header height */
+        overflow: hidden; 
+    }
+    .logo img {
+        max-height: 90%; /* Scale image relative to container */
+        width: auto;
+        display: block;
+        margin: 0 auto; /* Center if needed */
+    }
+
+    /* Position nav-desktop absolute so it centers within the header */
+    .nav-desktop {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+    }
+    /* Optionally, reposition the menu-toggle if needed */
+    .menu-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Position the hamburger menu on the left center of the header */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
