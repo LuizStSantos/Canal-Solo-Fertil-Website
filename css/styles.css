@@ -79,7 +79,8 @@ header img {
    ============================= */
 @media (max-width: 600px) {
     header {
-        height: 13vh;
+        height: auto;          /* Remove fixed height */
+        flex-wrap: wrap;        /* Allow items to wrap when space is limited */
     }
     header img {
         max-height: 90%;
@@ -134,6 +135,47 @@ header img {
         font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
         margin-bottom: 5px; /* Adiciona margem inferior para separação */
     }
+
+    /* Force header layout row and center content */
+    .site-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        overflow: hidden;  /* Ensures content stays within header */
+    }
+    /* Ensure the logo is centered and contained */
+    .logo {
+        margin: 0;
+        max-width: 90%;   /* Constrain logo width */
+        overflow: hidden;
+    }
+}
+
+/* Ajustes para evitar que a logo saia do header em telas pequenas */
+@media (max-width: 600px) {
+    .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+    }
+    .logo {
+        margin: 0 auto; /* Centraliza a logo */
+    }
+}
+
+/* Ajustes para evitar que a logo saia do header em telas pequenas e mantê-la centralizada no modo mobile */
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: row;      /* Garante layout em linha */
+        justify-content: center;    /* Centraliza conteúdo */
+        align-items: center;
+        padding: 10px;
+    }
+    .logo {
+        margin: 0 auto;            /* Remove margem esquerda e centraliza */
+    }
 }
 
 /* Ajustes para telas maiores */
@@ -171,6 +213,36 @@ header img {
         padding: 20px;
         box-sizing: border-box;
     }
+
+    /* Arrange header vertically: logo on top, menu below */
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;  /* Anima alterações do header */
+    }
+    .nav-desktop {
+        margin-top: 15px;
+        transition: all 0.5s ease;  /* Anima alterações do menu */
+    }
+    .nav-desktop ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+/* For mid-sized screens, allow header and nav to expand and wrap */
+@media (min-width: 601px) and (max-width: 1023px) {
+  header {
+    height: auto;         /* Remove fixed height */
+    flex-wrap: wrap;       /* Allow items to wrap */
+  }
+  .nav-desktop ul {
+    flex-wrap: wrap;       /* Allow menu items to move to next line if needed */
+    justify-content: center;
+  }
 }
 
 /* Footer */
@@ -203,19 +275,28 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Content */
+/* Updated Content */
 .content {
-    position: absolute;
-    top: 20vh; /* alterado de 13vh para 20vh para abaixar o conteúdo */
-    bottom: 7vh;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* Instead of absolute positioning, use relative layout with enough padding */
+    margin-top: 20vh; /* adjustable based on header height */
+    margin-bottom: 7vh; /* space for fixed footer */
     padding: 20px;
-    padding-bottom: 80px;
+    /* optionally remove absolute positioning if causing issues */
+    position: relative;
+}
+
+/* For smaller viewports adjust spacing and allow content to flow */
+@media (max-width: 600px) {
+    .content {
+        margin-top: calc(13vh + 10px); /* header height + extra spacing */
+        margin-bottom: 80px; /* extra bottom padding so footer doesn't cover content */
+    }
+
+    /* Make schedule grid content wrap normally */
+    .schedule-grid {
+        overflow-x: visible;
+        white-space: normal;
+    }
 }
 
 /* Player Container */
@@ -364,15 +445,17 @@ nav.nav-desktop ul li a.active::before {
 /* Estilos gerais para o header: mantém o layout centralizado */
 .site-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;      /* alinha itens horizontalmente */
+    justify-content: space-between; /* distribui espaço entre a logo e a navegação */
+    align-items: center;       /* garante que a logo e a nav estejam verticalmente centralizadas */
     padding: 15px;
 }
 
 /* Centraliza a logo e a desloca ligeiramente para a esquerda */
 .logo {
+    margin: 0;              /* remove margens que possam empurrar a logo para fora */
+    transform: none;        /* remove transformações indesejadas */
     margin: 0 auto 15px auto;
-    transform: translateX(-40px); /* ajuste pequeno para a esquerda */
 }
 
 .logo img {
@@ -657,4 +740,26 @@ nav.nav-desktop ul li a.active::before {
 .index .schedule-grid {
     overflow-x: visible; /* remove rolagem horizontal */
     white-space: normal; /* permite que o conteúdo quebre em linhas */
+}
+
+@media (min-width: 601px) {
+  /* Organiza o header verticalmente: logo no topo e menu centralizado abaixo */
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;  /* Anima alterações do header */
+  }
+  /* Espaçamento entre a logo e o menu */
+  .nav-desktop {
+    margin-top: 15px;
+    transition: all 0.5s ease;  /* Anima alterações do menu */
+  }
+  /* Centraliza os itens do menu */
+  .nav-desktop ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 }
