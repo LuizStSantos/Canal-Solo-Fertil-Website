@@ -800,6 +800,64 @@ nav.nav-desktop ul li a.active::before {
   width: 100%;
 }
 
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-wrapper {
+    width: 90%;
+    max-width: 400px;
+}
+
+.contact-info {
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+/* Ajustes específicos para mobile na página de contato */
+@media (max-width: 600px) {
+    .contact-content {
+        position: relative;
+        top: -5vh;
+        padding: 0;
+    }
+
+    .contact-wrapper {
+        width: calc(100% - 20px);
+    }
+
+    .contact-info {
+        padding: 15px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.2em;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 0.9em;
+        margin: 8px 0;
+        line-height: 1.4;
+    }
+
+    .map-container {
+        margin-top: 12px;
+        height: 180px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+
 @media (max-width: 600px) {
   .contact-wrapper {
     flex-direction: column;
