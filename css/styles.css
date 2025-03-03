@@ -1,20 +1,20 @@
-/* =============================
-   Estilo Global - Aplica-se a todos os dispositivos
-   ============================= */
+/* =============================================================================
+   Global Styles
+============================================================================= */
 body {
     margin: 0;
     padding: 0;
-    background: url("../src/img/background.jpg") no-repeat center center fixed; /* Define o fundo */
+    background: url("../src/img/background.jpg") no-repeat center center fixed;
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* =============================
-   Estilo do Header - Para desktop e em geral
-   ============================= */
+/* =============================================================================
+   Header & Navigation (General)
+============================================================================= */
 header {
     display: flex;
-    justify-content: space-between; /* Ajusta para espaço entre logo e navegação */
+    justify-content: space-between;
     align-items: center;
     height: 13vh;
     padding: 0 15px;
@@ -36,51 +36,47 @@ header img {
     transition: max-height 0.3s ease;
 }
 
-/* Posicionamento responsivo da logo */
 .logo {
-    margin-left: 20px; /* Posição padrão em telas menores */
+    margin-left: 20px;
 }
 
-/* Em telas grandes, você pode reposicionar a logo */
 @media (min-width: 1024px) {
     .logo {
-        margin-left: 20px; /* Ajusta a margem para evitar corte */
+        margin-left: 20px;
     }
     .nav-desktop ul {
-        margin-right: 20px; /* Ajusta a margem para evitar corte */
+        margin-right: 20px;
     }
 }
 
-/* Ajuste para evitar corte dos botões de navegação em telas largas */
 @media (min-width: 1024px) {
     header {
-        overflow: visible; /* Permite a exibição completa dos itens */
+        overflow: visible;
     }
     .nav-desktop ul {
-        flex-wrap: nowrap; /* Mantém todos os itens em linha única */
+        flex-wrap: nowrap;
     }
 }
 
-/* Em telas grandes - permite que o header se ajuste ao conteúdo */
 @media (min-width: 1024px) {
     header {
-        flex-wrap: wrap; /* Permite quebra interna se necessário */
-        height: auto;   /* Remove altura fixa para se ajustar ao conteúdo */
-        padding: 15px 20px; /* Ajusta preenchimento */
-        overflow: hidden; /* Garante que nada fique fora */
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px 20px;
+        overflow: hidden;
     }
     .nav-desktop ul {
-        flex-wrap: nowrap; /* Tenta manter os itens numa única linha */
+        flex-wrap: nowrap;
     }
 }
 
-/* =============================
-   Versões para Celulares - (viewport com largura até 600px)
-   ============================= */
+/* =============================================================================
+   Mobile Styles (Viewport up to 600px)
+============================================================================= */
 @media (max-width: 600px) {
     header {
         height: 13vh;
-        overflow: hidden; /* Ensure any overflow is clipped */
+        overflow: hidden;
         position: relative;
     }
     header img {
@@ -98,9 +94,9 @@ header img {
         font-size: 1rem;
     }
     .player-container {
-        width: 100%;  /* Modify this value as needed */
-        max-width: 100%;  /* Change if you want a different limit */
-        --player-height: calc(100vw * 9 / 16); /* Set a custom property on the player container using its aspect ratio (assuming full width) */
+        width: 100%;
+        max-width: 100%;
+        --player-height: calc(100vw * 9 / 16);
     }
     video {
         width: 100%;
@@ -111,58 +107,50 @@ header img {
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 100%;  /* mesma largura do player */
+        width: 100%;
         max-width: 100%;
         padding: 5px;
         font-size: 0.7rem;
-        max-height: var(--player-height); /* Apply the same height to the scheduler box */
-        overflow-y: auto; /* Habilita rolagem vertical se houver mais itens */
-        margin-bottom: 100px; /* Add extra bottom margin to provide spacing */
+        max-height: var(--player-height);
+        overflow-y: auto;
+        margin-bottom: 100px;
     }
-
     .about-box {
-        width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
+        width: calc(100% - 40px);
         padding: 20px;
-        margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+        margin: 20px;
         flex-direction: column;
     }
-
     .about-content {
         order: 1;
     }
-
     .about-image {
         order: 2;
-        margin: 20px auto 0; /* Adjust margin: 20px top, auto left/right, 0 bottom */
+        margin: 20px auto 0;
     }
-
     .schedule-header {
-        width: 100%; /* Ajusta a largura para evitar corte */
+        width: 100%;
         padding: 10px;
         box-sizing: border-box;
         display: flex;
-        flex-direction: column; /* Ajusta a direção para evitar sobreposição */
-        align-items: flex-start; /* Alinha os itens à esquerda */
+        flex-direction: column;
+        align-items: flex-start;
         min-height: 50px;
     }
-
     .schedule-header div {
-        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
-        margin-bottom: 5px; /* Adiciona margem inferior para separação */
+        font-size: 1em;
+        margin-bottom: 5px;
     }
-
     .logo {
-        max-height: 13vh; /* Match header height */
-        overflow: hidden; 
+        max-height: 13vh;
+        overflow: hidden;
     }
     .logo img {
-        max-height: 90%; /* Scale image relative to container */
+        max-height: 90%;
         width: auto;
         display: block;
-        margin: 0 auto; /* Center if needed */
+        margin: 0 auto;
     }
-
-    /* Position nav-desktop absolute so it centers within the header */
     .nav-desktop {
         position: absolute;
         top: 50%;
@@ -171,23 +159,18 @@ header img {
         width: 100%;
         text-align: center;
     }
-    /* Optionally, reposition the menu-toggle if needed */
     .menu-toggle {
         position: absolute;
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
     }
-
-    /* Position the hamburger menu on the left center of the header */
     .menu-toggle {
         position: absolute;
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
     }
-
-    /* Force hamburger menu to display on small screens */
     .menu-toggle {
         display: flex !important;
         position: absolute;
@@ -198,45 +181,46 @@ header img {
     }
 }
 
-/* Ajustes para telas maiores */
+/* =============================================================================
+   Desktop Responsive Styles (Viewport from 601px)
+============================================================================= */
 @media (min-width: 601px) {
     .schedule-header {
-        width: 42%; /* Ajusta a largura para evitar corte */
+        width: 42%;
         padding: 10px;
         box-sizing: border-box;
         display: flex;
-        flex-direction: row; /* Ajusta a direção para evitar sobreposição */
-        justify-content: space-between; /* Distribui espaço entre os itens */
-        background-color: #4CAF50; /* Adiciona cor de fundo */
-        color: white; /* Adiciona cor do texto */
-        border-radius: 5px; /* Adiciona borda arredondada */
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
         min-height: 50px;
     }
-
     .schedule-header .horario {
-        font-size: 1.2em; /* Ajusta o tamanho da fonte para telas maiores */
-        margin-bottom: 0; /* Remove margem inferior */
-        flex: 1; /* Garante que os itens ocupem espaço igual */
-        text-align: left; /* Alinha o texto à esquerda */
-        padding-left: 10px; /* Adiciona padding à esquerda */
+        font-size: 1.2em;
+        margin-bottom: 0;
+        flex: 1;
+        text-align: left;
+        padding-left: 10px;
     }
-
     .schedule-header .program {
-        font-size: 1.2em; /* Ajusta o tamanho da fonte para telas maiores */
-        margin-bottom: 0; /* Remove margem inferior */
-        flex: 1; /* Garante que os itens ocupem espaço igual */
-        text-align: right; /* Alinha o texto à direita */
-        padding-right: 10px; /* alterado de 500px */
+        font-size: 1.2em;
+        margin-bottom: 0;
+        flex: 1;
+        text-align: right;
+        padding-right: 10px;
     }
-
     .schedule-grid {
-        width: 100%; /* Ajusta a largura para evitar corte */
+        width: 100%;
         padding: 20px;
         box-sizing: border-box;
     }
 }
 
-/* Footer */
+/* =============================================================================
+   Footer Styles
+============================================================================= */
 footer {
     width: 100%;
     padding: 5px 0;
@@ -266,10 +250,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Content */
+/* =============================================================================
+   Content, Player & Video Styles
+============================================================================= */
 .content {
     position: absolute;
-    top: 20vh; /* alterado de 13vh para 20vh para abaixar o conteúdo */
+    top: 20vh;
     bottom: 7vh;
     left: 0;
     right: 0;
@@ -281,7 +267,6 @@ footer a:hover {
     padding-bottom: 80px;
 }
 
-/* Player Container */
 .player-container {
     width: 90%;
     max-width: 800px;
@@ -290,18 +275,19 @@ footer a:hover {
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     margin: auto;
-    flex-shrink: 0; /* Prevents the player from shrinking in a flex layout */
+    flex-shrink: 0;
 }
 
-/* Video */
 video {
     width: 100%;
     aspect-ratio: 16 / 9;
-    display: block; /* Ensure video renders as block-level element */
+    display: block;
     object-fit: contain;
 }
 
-/* Grade de Programação */
+/* =============================================================================
+   Schedule Grid Styles
+============================================================================= */
 .schedule-grid {
     margin-top: 20px;
     background: linear-gradient(90deg, #333, #555);
@@ -314,13 +300,12 @@ video {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: auto; /* permite rolagem horizontal */
-    white-space: nowrap; /* mantém o texto em uma única linha */
+    overflow-x: auto;
+    white-space: nowrap;
     max-height: none;
-    transition: all 0.3s ease; /* transição suave adicionada */
+    transition: all 0.3s ease;
 }
 
-/* Estilo personalizado para a barra de rolagem em navegadores WebKit (Chrome, Safari) */
 .schedule-grid::-webkit-scrollbar {
     width: 12px;
 }
@@ -328,36 +313,34 @@ video {
 .schedule-grid::-webkit-scrollbar-track {
     background: #333;
     border-radius: 10px;
-    box-shadow: inset 0 0 5px grey; /* Adiciona sombra interna */
+    box-shadow: inset 0 0 5px grey;
 }
 
 .schedule-grid::-webkit-scrollbar-thumb {
     background: #4CAF50;
     border-radius: 10px;
-    box-shadow: inset 0 0 5px grey; /* Adiciona sombra interna */
-    transition: background-color 0.3s ease; /* Adiciona transição suave */
+    box-shadow: inset 0 0 5px grey;
+    transition: background-color 0.3s ease;
 }
 
 .schedule-grid::-webkit-scrollbar-thumb:hover {
     background: #388E3C;
 }
 
-/* Cabeçalho e Linhas da Grade */
 .schedule-grid .grid-header,
 .schedule-grid .grid-row {
     display: grid;
     grid-template-columns: 1fr 3fr;
     padding: 8px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    white-space: nowrap; /* mantém o texto em uma única linha */
+    white-space: nowrap;
 }
 
-/* Make the grid-header remain static while the schedule rows scroll */
 .schedule-grid .grid-header {
     position: sticky;
     top: 0;
-    background: linear-gradient(90deg, #333, #555); /* ensures consistent background */
-    z-index: 10; /* stays above the scrolling rows */
+    background: linear-gradient(90deg, #333, #555);
+    z-index: 10;
 }
 
 .schedule-grid .grid-header {
@@ -371,7 +354,9 @@ video {
     border-bottom: none;
 }
 
-/* Mobile Landscape - Ajustes para player sem cortes */
+/* =============================================================================
+   Landscape Adjustments (Mobile Landscape)
+============================================================================= */
 @media (max-width: 600px) and (orientation: landscape) {
     .player-container {
         width: 100vw;
@@ -388,7 +373,9 @@ video {
     }
 }
 
-/* Oculta controles do vídeo (ex.: barra de progresso) em WebKit */
+/* =============================================================================
+   Video Controls Override (WebKit)
+============================================================================= */
 video::-webkit-media-controls-timeline-container,
 video::-webkit-media-controls-current-time-display,
 video::-webkit-media-controls-time-remaining-display {
@@ -398,14 +385,15 @@ video::-webkit-media-controls-time-remaining-display {
     pointer-events: none !important;
 }
 
-/* Estilo dos links de navegação com indicador hover */
+/* =============================================================================
+   Navigation Link Styles
+============================================================================= */
 nav.nav-desktop ul li a {
     position: relative;
-    padding-left: 20px; /* Espaço para a bolinha */
+    padding-left: 20px;
     transition: all 0.3s ease;
 }
 
-/* Pseudo-elemento para a bolinha */
 nav.nav-desktop ul li a::before {
     content: '';
     position: absolute;
@@ -419,21 +407,21 @@ nav.nav-desktop ul li a::before {
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
 }
 
-/* Ao passar o mouse, exibir a bolinha verde */
 nav.nav-desktop ul li a:hover::before {
     width: 8px;
     height: 8px;
     background-color: #00FF00;
 }
 
-/* Estilo para link da página ativa: bolinha amarela */
 nav.nav-desktop ul li a.active::before {
     width: 8px;
     height: 8px;
-    background-color: #FFFF00; /* bolinha amarela */
+    background-color: #FFFF00;
 }
 
-/* Estilos gerais para o header: mantém o layout centralizado */
+/* =============================================================================
+   Header Layout & Logo Adjustments
+============================================================================= */
 .site-header {
     display: flex;
     flex-direction: column;
@@ -441,10 +429,9 @@ nav.nav-desktop ul li a.active::before {
     padding: 15px;
 }
 
-/* Centraliza a logo e a desloca ligeiramente para a esquerda */
 .logo {
     margin: 0 auto 15px auto;
-    transform: translateX(-40px); /* ajuste pequeno para a esquerda */
+    transform: translateX(-40px);
 }
 
 .logo img {
@@ -452,7 +439,9 @@ nav.nav-desktop ul li a.active::before {
     transition: max-height 0.3s ease;
 }
 
-/* Estilos dos botões de navegação */
+/* =============================================================================
+   Desktop Navigation Buttons
+============================================================================= */
 .nav-desktop ul {
     display: flex;
     list-style: none;
@@ -465,11 +454,10 @@ nav.nav-desktop ul li a.active::before {
     color: #FFF;
     text-decoration: none;
     position: relative;
-    padding-left: 20px; /* Espaço para a bolinha */
+    padding-left: 20px;
     transition: all 0.3s ease;
 }
 
-/* Indicador da página ativa (bolinha amarela) */
 .nav-desktop ul li a.active::before {
     content: '';
     position: absolute;
@@ -482,14 +470,15 @@ nav.nav-desktop ul li a.active::before {
     border-radius: 50%;
 }
 
-/* Ícone de hambúrguer - inicialmente oculto */
+/* =============================================================================
+   Hamburger Menu Icon
+============================================================================= */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    /* Adiciona flex dentro do header */
     align-self: center;
-    position: relative; /* Garante que o ícone fique dentro do header */
+    position: relative;
 }
 
 .menu-toggle span {
@@ -500,17 +489,19 @@ nav.nav-desktop ul li a.active::before {
     background-color: #FFF;
 }
 
-/* Menu lateral oculto vindo da esquerda */
+/* =============================================================================
+   Side Menu (Mobile)
+============================================================================= */
 .side-menu {
     position: fixed;
     top: 0;
-    left: 0;  /* Altera para a esquerda */
+    left: 0;
     height: 100%;
     width: 250px;
     background: #333;
     color: #FFF;
     padding: 20px;
-    transform: translateX(-100%);  /* Inicia fora da tela à esquerda */
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1100;
 }
@@ -519,7 +510,6 @@ nav.nav-desktop ul li a.active::before {
     transform: translateX(0);
 }
 
-/* Botão para fechar o side-menu */
 .side-menu .close-menu {
     background: transparent;
     border: none;
@@ -538,13 +528,12 @@ nav.nav-desktop ul li a.active::before {
     margin-bottom: 15px;
 }
 
-/* Estilo dos links do menu lateral com indicador similar */
 .side-menu ul li a {
     color: #FFF;
     text-decoration: none;
     font-size: 1.2rem;
     position: relative;
-    padding-left: 20px;  /* Espaço para a bolinha */
+    padding-left: 20px;
     transition: all 0.3s ease;
 }
 
@@ -561,14 +550,12 @@ nav.nav-desktop ul li a.active::before {
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
 }
 
-/* Exibe bolinha verde ao passar o mouse */
 .side-menu ul li a:hover::before {
     width: 8px;
     height: 8px;
     background-color: #00FF00;
 }
 
-/* Exibe bolinha amarela para link ativo */
 .side-menu ul li a.active::before {
     width: 8px;
     height: 8px;
@@ -576,10 +563,12 @@ nav.nav-desktop ul li a.active::before {
     border-radius: 50%;
 }
 
-/* Media queries para responsividade */
+/* =============================================================================
+   Responsive Adjustments (Max-width: 768px)
+============================================================================= */
 @media (max-width: 768px) {
     .logo img {
-        max-height: 70px; /* Diminui a logo em telas menores */
+        max-height: 70px;
     }
     .nav-desktop ul {
         flex-wrap: wrap;
@@ -590,30 +579,30 @@ nav.nav-desktop ul li a.active::before {
         margin-bottom: 10px;
     }
     .logo {
-        width: 100%;           /* Força o container a ocupar toda a largura */
-        display: flex;         /* Usa flexbox no container */
-        justify-content: center; /* Centraliza horizontalmente o conteúdo */
-        transform: none;       /* Remove qualquer deslocamento */
-        margin: 20px auto 15px auto; /* Garante margem automática e desce a logo */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: none;
+        margin: 20px auto 15px auto;
     }
-    /* Oculta a navegação desktop */
     nav.nav-desktop {
         display: none;
     }
-    /* Exibe o ícone de hambúrguer à esquerda */
     .menu-toggle {
         display: flex;
-        position: absolute; /* Garante que o ícone fique dentro do header */
+        position: absolute;
         top: 50%;
-        left: 20px; /* Ajusta a posição mais para a direita */
-        transform: translateY(-50%); /* Centraliza verticalmente */
+        left: 20px;
+        transform: translateY(-50%);
     }
     header {
-        overflow: visible; /* Permite que o ícone seja exibido */
+        overflow: visible;
     }
 }
 
-/* Estilos para a box do Sobre, similar ao container de contato */
+/* =============================================================================
+   About Box Component
+============================================================================= */
 .about-box {
     display: flex;
     flex-direction: row;
@@ -628,7 +617,6 @@ nav.nav-desktop ul li a.active::before {
     margin: auto;
 }
 
-/* Style for the image container inside about-box */
 .about-image {
     flex: 0 0 44%;
     margin-right: 20px;
@@ -639,7 +627,6 @@ nav.nav-desktop ul li a.active::before {
     border-radius: 5px;
 }
 
-/* Style for the text content inside about-box */
 .about-content {
     flex: 1;
 }
@@ -650,94 +637,90 @@ nav.nav-desktop ul li a.active::before {
     text-align: left;
 }
 
-/* Ajustes para telas pequenas */
+/* =============================================================================
+   About Box Adjustments (Small Screens)
+============================================================================= */
 @media (max-width: 600px) {
     .about-box {
-        width: calc(100% - 40px); /* Ajusta a largura para evitar corte */
+        width: calc(100% - 40px);
         padding: 20px;
-        margin: 20px; /* Adiciona margem para evitar corte nas bordas */
+        margin: 20px;
         flex-direction: column;
     }
-
     .about-content {
         order: 1;
     }
-
     .about-image {
         order: 2;
-        margin: 20px auto 0; /* Adjust margin: 20px top, auto left/right, 0 bottom */
+        margin: 20px auto 0;
     }
-
     .schedule-header {
-        width: 100%; /* Ajusta a largura para evitar corte */
+        width: 100%;
         padding: 10px;
         box-sizing: border-box;
         display: flex;
-        flex-direction: row; /* Ajusta a direção para evitar sobreposição */
-        justify-content: space-between; /* Distribui espaço entre os itens */
-        background-color: #4CAF50; /* Adiciona cor de fundo */
-        color: white; /* Adiciona cor do texto */
-        border-radius: 5px; /* Adiciona borda arredondada */
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
     }
-
     .schedule-header .horario,
     .schedule-header .program {
-        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
-        margin-bottom: 0; /* Remove margem inferior */
-        flex: 1; /* Garante que os itens ocupem espaço igual */
-        text-align: center; /* Centraliza o texto */
+        font-size: 1em;
+        margin-bottom: 0;
+        flex: 1;
+        text-align: center;
     }
-
     .schedule-header .horario {
-        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
-        margin-bottom: 0; /* Remove margem inferior */
-        flex: 1; /* Garante que os itens ocupem espaço igual */
-        text-align: left; /* Alinha o texto à esquerda */
-        padding-left: 10px; /* Adiciona padding à esquerda */
+        text-align: left;
+        padding-left: 10px;
     }
-
     .schedule-header .program {
-        font-size: 1em; /* Ajusta o tamanho da fonte para telas pequenas */
-        margin-bottom: 0; /* Remove margem inferior */
-        flex: 1; /* Garante que os itens ocupem espaço igual */
-        text-align: right; /* Alinha o texto à direita */
-        padding-right: 170px; /* Adiciona padding à direita */
+        text-align: right;
+        padding-right: 170px;
     }
-
     .schedule-grid {
-        width: 100%; /* Ajusta a largura para evitar corte */
+        width: 100%;
         padding: 10px;
         box-sizing: border-box;
     }
 }
 
-/* Override para scheduler do index não ter scroll */
+/* =============================================================================
+   Index Scheduler Override
+============================================================================= */
 .index .schedule-grid {
-    overflow-x: visible; /* remove rolagem horizontal */
-    white-space: normal; /* permite que o conteúdo quebre em linhas */
+    overflow-x: visible;
+    white-space: normal;
 }
 
+/* =============================================================================
+   Rounded Image Component
+============================================================================= */
 .rounded-image img {
-  width: 44%; /* Same width as the green box */
+  width: 44%;
   display: block;
-  margin: 20px auto; /* Center the image with similar vertical spacing */
-  border-radius: 5px; /* Rounded borders similar to the about box */
+  margin: 20px auto;
+  border-radius: 5px;
 }
 
-/* New styles for the contact page */
+/* =============================================================================
+   Contact Page Styles
+============================================================================= */
 .contact-form-container,
 .contact-info {
-  flex: 1;               /* Both boxes take equal space */
+  flex: 1;
   padding: 20px;
-  background-color: #333; /* Same background */
-  color: #fff;            /* White text */
+  background-color: #333;
+  color: #fff;
   border-radius: 8px;
   box-sizing: border-box;
-  /* Remove fixed max-width to allow equal sizing */
   width: 100%;
 }
+
 @media (max-width: 600px) {
   .contact-wrapper {
-    flex-direction: column; /* Stack boxes in mobile */
+    flex-direction: column;
   }
 }

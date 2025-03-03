@@ -1,5 +1,5 @@
+/* ========= HLS Video Player Initialization ========= */
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuração do Player com HLS.js
     const video = document.getElementById('player');
     if (video) {
         if (Hls.isSupported()) {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Controle da grade: oculta linhas com horários já passados e restaura exibição
+/* ========= Schedule Grid Control ========= */
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Controle do menu lateral
+/* ========= Side Menu Control ========= */
     const menuToggle = document.querySelector('.menu-toggle');
     const sideMenu = document.querySelector('.side-menu');
     const closeMenu = document.querySelector('.close-menu');
-    if(menuToggle && sideMenu && closeMenu) {
+    if (menuToggle && sideMenu && closeMenu) {
         menuToggle.addEventListener('click', function() {
             sideMenu.classList.add('open');
         });
@@ -47,29 +47,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Populate scheduler from data/program.json
+/* ========= Scheduler Population ========= */
     fetch('data/program.json')
       .then(response => response.json())
       .then(data => {
-        // Filter out "Vinhetas" entries
         const allPrograms = data.filter(item => item.name !== "Vinhetas");
         const now = new Date();
         let displayPrograms = allPrograms;
 
-        // If on index page, show only upcoming programs and limit to 3 entries
         if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
           displayPrograms = allPrograms.filter(item => {
             const [hour, minute] = item.start.split(':');
             const programTime = new Date();
             programTime.setHours(parseInt(hour, 10), parseInt(minute, 10), 0);
             return programTime > now;
-          }).slice(0, 3); // Changed from 4 to 3
+          }).slice(0, 3);
         }
 
         const scheduleContent = document.getElementById('schedule-content');
         if (scheduleContent) {
           displayPrograms.forEach(item => {
-            // Extract HH:mm from start time
             const [hour, minute] = item.start.split(':');
             const timeDisplay = `${hour}:${minute}`;
             const row = document.createElement('div');
