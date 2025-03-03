@@ -190,7 +190,30 @@ header img {
         position: relative;
         top: 13vh;
         height: calc(100vh - 20vh);
-        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    .about-box {
+        width: calc(100% - 20px);
+        padding: 15px;
+        margin: 0;
+        flex-direction: column;
+        position: relative;
+        top: -9.5vh; /* Ajuste fino para centralização vertical */
+    }
+    .about-content {
+        order: 1;
+        font-size: 0.85em;
+    }
+    .about-image {
+        order: 2;
+        width: 65%;
+        margin: 8px auto;
+    }
+    .about-image img {
+        max-height: 18vh;
     }
 }
 
@@ -619,25 +642,17 @@ nav.nav-desktop ul li a.active::before {
 .about-box {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 90%;
     max-width: 800px;
     background-color: #333;
-    padding: 30px;
+    padding: 25px;
     border-radius: 8px;
     color: #fff;
     margin: auto;
-}
-
-.about-image {
-    flex: 0 0 44%;
-    margin-right: 20px;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 5px;
+    box-sizing: border-box;
+    gap: 20px;
 }
 
 .about-content {
@@ -645,9 +660,62 @@ nav.nav-desktop ul li a.active::before {
 }
 
 .about-content h1 {
-    margin-top: 0;
-    font-size: 1.5em;
-    text-align: left;
+    margin: 0 0 15px 0;
+    font-size: 1.4em;
+    line-height: 1.2;
+}
+
+.about-content p {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    font-size: 1em;
+}
+
+.about-image {
+    flex: 0 0 35%;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 600px) {
+    .about-box {
+        padding: 15px;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .about-content {
+        order: 1;
+    }
+
+    .about-content h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    .about-image {
+        order: 2;
+        width: 60%;
+        margin: 5px auto;
+    }
+
+    .about-image img {
+        max-height: 150px;
+    }
 }
 
 /* =============================================================================
