@@ -18,7 +18,7 @@ The **Canal Solo Fértil Website** showcases the brand and provides comprehensiv
 
 ## Project Structure 🗂️
 ```
-/home/luizstsantos/Documents/Canal-Solo-Fertil-Website
+/home/user/Documents/Canal-Solo-Fertil-Website
 ├── css
 │   └── styles.css
 ├── data
