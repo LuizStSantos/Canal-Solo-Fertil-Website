@@ -890,3 +890,59 @@ nav.nav-desktop ul li a.active::before {
         transform: translate(-50%, -50%);
     }
 }
+
+/* =============================================================================
+   Index Page Specific Styles
+============================================================================= */
+.index .schedule-grid {
+    height: 169px; /* Adjusted from 250px to 400px */
+    width: 90%;
+    max-width: 800px;
+    margin: 10px auto;
+    transform: none;
+    left: auto;
+}
+
+/* =============================================================================
+   Index Page Specific Styles (Schedule Grid Positioning)
+============================================================================= */
+.index .player-container {
+    position: relative; /* establish positioning context */
+    /* ...existing code... */
+}
+
+.index .schedule-grid {
+    position: static;
+    margin-top: 20px; /* 20px below the player */
+    /* ...existing code (width, height, etc)... */
+}
+
+/* =============================================================================
+   Index Page Specific Styles (Schedule Grid Adjustments)
+============================================================================= */
+.index .schedule-grid {
+    height: auto; /* Allow the box to expand and avoid scroll */
+    overflow-y: visible; /* Remove vertical scrollbar */
+    /* ...existing code (width, max-width, margin, etc)... */
+}
+
+/* =============================================================================
+   Mobile Styles Adjustments for Index Page
+============================================================================= */
+@media (max-width: 600px) {
+    .index .player-container {
+        position: relative; /* establish positioning context */
+    }
+    .index .schedule-grid {
+        height: 169px; /* Adjusted from 250px to 400px */
+        width: 90%;
+        max-width: 800px;
+        margin: 10px auto;
+        transform: none;
+        left: auto;
+    }
+    .index .schedule-grid {
+        margin-top: 0; /* Move the schedule grid right next to the player */
+    }
+    
+}
