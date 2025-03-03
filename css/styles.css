@@ -613,56 +613,6 @@ nav.nav-desktop ul li a.active::before {
     }
 }
 
-/* Estilos movidos do contato.html */
-.contact-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 14vh;  /* Espaço para o header fixo */
-    margin-bottom: 7vh; /* Espaço para o footer fixo */
-    padding: 20px;
-}
-
-.contact-form-container {
-    /* Manter modelo original, apenas reduzir dimensões */
-    width: 90%;
-    max-width: 350px; /* Reduzido de 400px */
-    background-color: #333;
-    padding: 15px;    /* Reduzido de 30px */
-    border-radius: 8px;
-    color: #fff;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-}
-
-/* Opcional: Estilização do formulário de contato */
-.contact-form-container h1 {
-    text-align: center;
-}
-
-.contact-form-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form-container input,
-.contact-form-container textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.contact-form-container button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-}
-
 /* Estilos para a box do Sobre, similar ao container de contato */
 .about-box {
     display: flex;
@@ -775,11 +725,6 @@ nav.nav-desktop ul li a.active::before {
 }
 
 /* New styles for the contact page */
-.contact-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
 .contact-form-container,
 .contact-info {
   flex: 1;               /* Both boxes take equal space */
