@@ -47,27 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Envio do formulário de contato via AJAX
-    const form = document.getElementById("contact-form");
-    if (form) {
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "enviar_contato.php", true);
-            xhr.setRequestHeader("Accept", "application/json");
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    alert("Mensagem enviada com sucesso!");
-                    form.reset();
-                } else {
-                    alert("Falha ao enviar a mensagem.");
-                }
-            };
-            xhr.send(formData);
-        });
-    }
-
     // Populate scheduler from data/program.json
     fetch('data/program.json')
       .then(response => response.json())

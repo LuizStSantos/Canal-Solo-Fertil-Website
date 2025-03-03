@@ -186,6 +186,16 @@ header img {
         top: 50%;
         transform: translateY(-50%);
     }
+
+    /* Force hamburger menu to display on small screens */
+    .menu-toggle {
+        display: flex !important;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1101;
+    }
 }
 
 /* Ajustes para telas maiores */
@@ -762,4 +772,27 @@ nav.nav-desktop ul li a.active::before {
   display: block;
   margin: 20px auto; /* Center the image with similar vertical spacing */
   border-radius: 5px; /* Rounded borders similar to the about box */
+}
+
+/* New styles for the contact page */
+.contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.contact-form-container,
+.contact-info {
+  flex: 1;               /* Both boxes take equal space */
+  padding: 20px;
+  background-color: #333; /* Same background */
+  color: #fff;            /* White text */
+  border-radius: 8px;
+  box-sizing: border-box;
+  /* Remove fixed max-width to allow equal sizing */
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .contact-wrapper {
+    flex-direction: column; /* Stack boxes in mobile */
+  }
 }
