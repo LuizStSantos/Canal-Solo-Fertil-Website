@@ -179,6 +179,19 @@ header img {
         transform: translateY(-50%);
         z-index: 1101;
     }
+    html, body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    .content {
+        position: relative;
+        top: 13vh;
+        height: calc(100vh - 20vh);
+        overflow: hidden;
+    }
 }
 
 /* =============================================================================
