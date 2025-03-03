@@ -18,7 +18,7 @@ header {
     align-items: center;
     height: 13vh;
     padding: 0 15px;
-    background: linear-gradient(90deg, #333, #555);
+    background-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
@@ -224,7 +224,7 @@ header img {
 footer {
     width: 100%;
     padding: 5px 0;
-    background: linear-gradient(90deg, #333, #555);
+    background-color: #333;
     color: #f9f9f9;
     text-align: center;
     font-size: 1.2rem;
@@ -290,7 +290,7 @@ video {
 ============================================================================= */
 .schedule-grid {
     margin-top: 20px;
-    background: linear-gradient(90deg, #333, #555);
+    background-color: #333;
     color: #fff;
     padding: 15px;
     border-radius: 10px;
@@ -339,14 +339,14 @@ video {
 .schedule-grid .grid-header {
     position: sticky;
     top: 0;
-    background: linear-gradient(90deg, #333, #555);
+    background-color: #333;
     z-index: 10;
 }
 
 .schedule-grid .grid-header {
     position: static;
     z-index: auto;
-    background: linear-gradient(90deg, #333, #555);
+    background-color: #333;
     font-weight: bold;
 }
 
