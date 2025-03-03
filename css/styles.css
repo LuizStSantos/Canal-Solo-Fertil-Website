@@ -116,19 +116,7 @@ header img {
         margin-bottom: 100px;
         height: 400px;
     }
-    .about-box {
-        width: calc(100% - 40px);
-        padding: 20px;
-        margin: 20px;
-        flex-direction: column;
-    }
-    .about-content {
-        order: 1;
-    }
-    .about-image {
-        order: 2;
-        margin: 20px auto 0;
-    }
+
     .schedule-header {
         width: 100%;
         padding: 10px;
@@ -196,25 +184,55 @@ header img {
         justify-content: center;
         padding: 0;
     }
-    .about-box {
-        width: calc(100% - 20px);
-        padding: 15px;
-        margin: 0;
-        flex-direction: column;
-        position: relative;
-        top: -9.5vh;
+
+    .index .schedule-grid {
+        position: static !important;
+        margin: 2 auto !important;
+        transform: none !important;
+        left: auto !important;
+        height: auto;
+        overflow-y: visible;
     }
-    .about-content {
-        order: 1;
-        font-size: 0.85em;
+    
+    .index .schedule-grid {
+        margin-top: 20px; /* 20px de espaçamento em relação ao player */
+        margin-left: auto;
+        margin-right: auto;
     }
-    .about-image {
-        order: 2;
-        width: 65%;
-        margin: 8px auto;
+
+    /* Ajusta o player: centralizado com 20px de margem inferior */
+    .index .player-container {
+        margin: 0 auto 0px auto;
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
     }
-    .about-image img {
-        max-height: 18vh;
+
+    /* Content Layout */
+    .content {
+        position: static !important;
+        padding: 10px;
+        top: 0;
+    }
+
+
+    /* Schedule Header Mobile Layout */
+    .schedule-header {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .schedule-header .horario {
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .schedule-header .program {
+        text-align: right;
+        padding-right: 10px;
     }
 }
 
@@ -256,6 +274,55 @@ header img {
 }
 
 /* =============================================================================
+   Schedule Grid Desktop Styles
+============================================================================= */
+@media (min-width: 601px) {
+    .index .schedule-grid {
+        position: relative;
+        height: auto; 
+        margin: 10px auto;
+        top: auto;
+        transform: none;
+        left: auto;
+    }
+
+    .schedule-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .index .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        margin-top: 13vh;
+        height: auto;
+        overflow: visible;
+    }
+
+    .index .player-container {
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .schedule-grid {
+        position: relative;
+        transform: none;
+        left: auto;
+        height: auto;
+        overflow-y: visible;
+    }
+}
+
+/* =============================================================================
    Footer Styles
 ============================================================================= */
 footer {
@@ -292,7 +359,7 @@ footer a:hover {
 ============================================================================= */
 .content {
     position: absolute;
-    top: 20vh;
+    top: 5vh;
     bottom: 7vh;
     left: 0;
     right: 0;
@@ -631,14 +698,37 @@ nav.nav-desktop ul li a.active::before {
         display: none;
     }
     .menu-toggle {
-        display: flex;
+        display: flex !important;
         position: absolute;
+        left: 10px;
         top: 50%;
-        left: 20px;
         transform: translateY(-50%);
+        z-index: 1101;
+        cursor: pointer;
     }
-    header {
-        overflow: visible;
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 3px 0;
+        background-color: #FFF;
+    }
+
+    nav.nav-desktop {
+        display: none;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: none;
+        margin: 20px auto 15px auto;
+    }
+
+    .logo img {
+        max-height: 70px;
     }
 }
 
@@ -689,88 +779,23 @@ nav.nav-desktop ul li a.active::before {
     object-fit: cover;
 }
 
-/* Ajustes para mobile */
 @media (max-width: 600px) {
     .about-box {
-        padding: 15px;
-        gap: 15px;
         flex-direction: column;
-    }
-
-    .about-content {
-        order: 1;
-    }
-
-    .about-content h1 {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .about-content p {
-        font-size: 0.9em;
-        margin-bottom: 10px;
-        text-align: justify;
+        align-items: center;
+        padding: 10px; /* Reduce padding */
+        margin-top: 13vh; /* Adjust to be below the header */
+        margin-bottom: 7vh; /* Adjust to be above the footer */
     }
 
     .about-image {
-        order: 2;
-        width: 60%;
-        margin: 5px auto;
+        width: 100%;
+        margin-bottom: 0px;
     }
 
-    .about-image img {
-        max-height: 150px;
-    }
-}
-
-/* =============================================================================
-   About Box Adjustments (Small Screens)
-============================================================================= */
-@media (max-width: 600px) {
-    .about-box {
-        width: calc(100% - 40px);
-        padding: 20px;
-        margin: 20px;
-        flex-direction: column;
-    }
     .about-content {
-        order: 1;
-    }
-    .about-image {
-        order: 2;
-        margin: 20px auto 0;
-    }
-    .schedule-header {
         width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px;
-    }
-    .schedule-header .horario,
-    .schedule-header .program {
-        font-size: 1em;
-        margin-bottom: 0;
-        flex: 1;
-        text-align: center;
-    }
-    .schedule-header .horario {
-        text-align: left;
-        padding-left: 10px;
-    }
-    .schedule-header .program {
-        text-align: right;
-        padding-right: 170px;
-    }
-    .schedule-grid {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
+        margin-bottom: 10px; /* Add margin to separate text from image */
     }
 }
 
@@ -891,58 +916,3 @@ nav.nav-desktop ul li a.active::before {
     }
 }
 
-/* =============================================================================
-   Index Page Specific Styles
-============================================================================= */
-.index .schedule-grid {
-    height: 169px; /* Adjusted from 250px to 400px */
-    width: 90%;
-    max-width: 800px;
-    margin: 10px auto;
-    transform: none;
-    left: auto;
-}
-
-/* =============================================================================
-   Index Page Specific Styles (Schedule Grid Positioning)
-============================================================================= */
-.index .player-container {
-    position: relative; /* establish positioning context */
-    /* ...existing code... */
-}
-
-.index .schedule-grid {
-    position: static;
-    margin-top: 20px; /* 20px below the player */
-    /* ...existing code (width, height, etc)... */
-}
-
-/* =============================================================================
-   Index Page Specific Styles (Schedule Grid Adjustments)
-============================================================================= */
-.index .schedule-grid {
-    height: auto; /* Allow the box to expand and avoid scroll */
-    overflow-y: visible; /* Remove vertical scrollbar */
-    /* ...existing code (width, max-width, margin, etc)... */
-}
-
-/* =============================================================================
-   Mobile Styles Adjustments for Index Page
-============================================================================= */
-@media (max-width: 600px) {
-    .index .player-container {
-        position: relative; /* establish positioning context */
-    }
-    .index .schedule-grid {
-        height: 169px; /* Adjusted from 250px to 400px */
-        width: 90%;
-        max-width: 800px;
-        margin: 10px auto;
-        transform: none;
-        left: auto;
-    }
-    .index .schedule-grid {
-        margin-top: 0; /* Move the schedule grid right next to the player */
-    }
-    
-}
