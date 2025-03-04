@@ -46,7 +46,7 @@
   object-fit: cover;
   min-height: 100%;
 }
-/* Responsive tweaks */
+
 @media (max-width: 600px) {
   .about-box {
     transform: none;

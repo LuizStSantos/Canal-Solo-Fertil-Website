@@ -54,13 +54,13 @@ video::-webkit-media-controls-time-remaining-display {
     width: 81%;
     box-sizing: border-box;
     margin: 20px auto;
-    overflow: hidden; /* Changed from overflow-x: auto */
+    overflow: hidden;
     white-space: nowrap;
     height: 170px;
     position: relative;
 }
 
-/* Remove scrollbar styles for index schedule grid */
+
 .index .schedule-grid::-webkit-scrollbar {
     display: none;
 }

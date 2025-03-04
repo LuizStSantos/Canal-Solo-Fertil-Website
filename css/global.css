@@ -339,7 +339,7 @@ nav.nav-desktop ul li a.active::before {
     background-color: #00FF00;
 }
 
-side-menu ul li a.active::before {
+.side-menu ul li a.active::before {
     width: 8px;
     height: 8px;
     background-color: #FFFF00;
