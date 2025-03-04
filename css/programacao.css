@@ -103,7 +103,7 @@ body {
 
 @media (max-width: 600px) {
     .schedule-grid {
-        height: 450px; /* Altura ajustada para dispositivos móveis */
+        height: 450px;
         width: 100%;
         max-width: 350px;
         top: 50%;

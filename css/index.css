@@ -1,4 +1,3 @@
-/* Index Page Specific Styles */
 .index .content {
     position: absolute;
     top: 5vh;
@@ -12,7 +11,6 @@
     padding: 20px;
 }
 
-/* Content, Player & Video Styles */
 .player-container {
     width: 90%;
     max-width: 800px;
@@ -31,7 +29,6 @@ video {
     object-fit: contain;
 }
 
-/* Video Controls Override (WebKit) */
 video::-webkit-media-controls-timeline-container,
 video::-webkit-media-controls-current-time-display,
 video::-webkit-media-controls-time-remaining-display {
@@ -41,7 +38,6 @@ video::-webkit-media-controls-time-remaining-display {
     pointer-events: none !important;
 }
 
-/* Schedule Grid Styles - Exactly as in original */
 .index .schedule-grid {
     margin-top: 20px;
     background-color: #333;
@@ -103,21 +99,7 @@ video::-webkit-media-controls-time-remaining-display {
     font-weight: bold;
 }
 
-@media (max-width: 600px) {
-    .index .schedule-grid {
-        height: 170px;
-        margin-top: 5%;
-        width: 82%;
-        margin-bottom: 60px;
-        top: 70%;
-        transform: translate(-50%, -50%);
-    }
-    .index .player-container {
-        margin-top: 40%;
-    }
-}
 
-/* Add these styles moved from styles.css */
 @media (min-width: 601px) {
     .index .schedule-grid {
         position: relative;
@@ -147,4 +129,17 @@ video::-webkit-media-controls-time-remaining-display {
     }
 }
 
-/* Additional index-specific rules can be added here */
+@media (max-width: 600px) {
+    .index .schedule-grid {
+        height: 170px;
+        margin-top: 5%;
+        width: 82%;
+        margin-bottom: 60px;
+        top: 70%;
+        overflow: visible;
+        transform: translate(-50%, -50%);
+    }
+    .index .player-container {
+        margin-top: 40%;
+    }
+}
