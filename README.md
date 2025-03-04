@@ -20,7 +20,7 @@ The **Canal Solo Fértil Website** showcases the brand and provides comprehensiv
 ```
 /home/user/Documents/Canal-Solo-Fertil-Website
 ├── css/
-│   ├── styles.css      # Global styles
+│   ├── global.css      # Global styles
 │   ├── index.css       # Homepage styles
 │   ├── programacao.css # Programming page styles
 │   ├── sobre.css       # About page styles
