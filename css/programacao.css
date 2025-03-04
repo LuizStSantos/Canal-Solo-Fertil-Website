@@ -1,0 +1,137 @@
+/* Content wrapper for proper centering */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    position: relative;
+    margin-top: 17vh; /* Aumentado para evitar sobreposição com o header */
+    margin-bottom: 7vh;
+    min-height: calc(100vh - 22vh); /* Ajustado para o novo margin-top */
+    display: flex;
+    align-items: flex-start; /* Mudado para flex-start */
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Schedule Grid Styles */
+.schedule-grid {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-height: none;
+    transition: all 0.3s ease;
+    height: 600px;
+    overflow-y: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.schedule-grid::-webkit-scrollbar {
+    width: 12px;
+}
+
+.schedule-grid::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+}
+
+.schedule-grid::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-grid::-webkit-scrollbar-thumb:hover {
+    background: #388E3C;
+}
+
+.schedule-grid .grid-header,
+.schedule-grid .grid-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+}
+
+.schedule-grid .grid-header {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 10;
+}
+
+.schedule-grid .grid-header {
+    position: static;
+    z-index: auto;
+    background-color: #333;
+    font-weight: bold;
+}
+
+.schedule-grid .grid-row:last-child {
+    border-bottom: none;
+}
+
+/* Add these styles moved from styles.css */
+@media (min-width: 601px) {
+    .schedule-grid {
+        height: 600px;
+        width: 100%;
+        max-width: 800px;
+        margin: 50px auto;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .schedule-grid {
+        height: 450px; /* Altura ajustada para dispositivos móveis */
+        width: 100%;
+        max-width: 350px;
+        top: 50%;
+        overflow-y: auto;
+        margin-right: auto;
+        margin-left: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.schedule-header .horario {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    flex: 1;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.schedule-header .program {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    flex: 1;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.schedule-grid {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}

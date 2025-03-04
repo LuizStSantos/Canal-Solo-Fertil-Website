@@ -10,7 +10,7 @@ body {
 }
 
 /* =============================================================================
-   Header & Navigation (General)
+   Header & Navigation (Global)
 ============================================================================= */
 header {
     display: flex;
@@ -93,43 +93,6 @@ header img {
         padding: 10px 0;
         font-size: 1rem;
     }
-    .player-container {
-        width: 100%;
-        max-width: 100%;
-        --player-height: calc(100vw * 9 / 16);
-    }
-    video {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: contain;
-    }
-    .schedule-grid {
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        max-width: 100%;
-        padding: 5px;
-        font-size: 0.7rem;
-        max-height: var(--player-height);
-        overflow-y: auto;
-        margin-bottom: 100px;
-        height: 400px;
-    }
-
-    .schedule-header {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        min-height: 50px;
-    }
-    .schedule-header div {
-        font-size: 1em;
-        margin-bottom: 5px;
-    }
     .logo {
         max-height: 13vh;
         overflow: hidden;
@@ -150,23 +113,11 @@ header img {
     }
     .menu-toggle {
         position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .menu-toggle {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .menu-toggle {
-        display: flex !important;
-        position: absolute;
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1101;
+        display: flex !important;
     }
     html, body {
         width: 100vw;
@@ -174,151 +125,6 @@ header img {
         overflow: hidden;
         margin: 0;
         padding: 0;
-    }
-    .content {
-        position: relative;
-        top: 13vh;
-        height: calc(100vh - 20vh);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-    }
-
-    .index .schedule-grid {
-        position: static !important;
-        margin: 2 auto !important;
-        transform: none !important;
-        left: auto !important;
-        height: auto;
-        overflow-y: visible;
-    }
-    
-    .index .schedule-grid {
-        margin-top: 20px; /* 20px de espaçamento em relação ao player */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Ajusta o player: centralizado com 20px de margem inferior */
-    .index .player-container {
-        margin: 0 auto 0px auto;
-        position: static !important;
-        transform: none !important;
-        left: auto !important;
-    }
-
-    /* Content Layout */
-    .content {
-        position: static !important;
-        padding: 10px;
-        top: 0;
-    }
-
-
-    /* Schedule Header Mobile Layout */
-    .schedule-header {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .schedule-header .horario {
-        text-align: left;
-        padding-left: 10px;
-    }
-
-    .schedule-header .program {
-        text-align: right;
-        padding-right: 10px;
-    }
-}
-
-/* =============================================================================
-   Desktop Responsive Styles (Viewport from 601px)
-============================================================================= */
-@media (min-width: 601px) {
-    .schedule-header {
-        width: 42%;
-        padding: 10px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px;
-        min-height: 50px;
-    }
-    .schedule-header .horario {
-        font-size: 1.2em;
-        margin-bottom: 0;
-        flex: 1;
-        text-align: left;
-        padding-left: 10px;
-    }
-    .schedule-header .program {
-        font-size: 1.2em;
-        margin-bottom: 0;
-        flex: 1;
-        text-align: right;
-        padding-right: 10px;
-    }
-    .schedule-grid {
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-}
-
-/* =============================================================================
-   Schedule Grid Desktop Styles
-============================================================================= */
-@media (min-width: 601px) {
-    .index .schedule-grid {
-        position: relative;
-        height: auto; 
-        margin: 10px auto;
-        top: auto;
-        transform: none;
-        left: auto;
-    }
-
-    .schedule-header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px 5px 0 0;
-    }
-
-    .index .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 20px;
-        margin-top: 13vh;
-        height: auto;
-        overflow: visible;
-    }
-
-    .index .player-container {
-        width: 80%;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .schedule-grid {
-        position: relative;
-        transform: none;
-        left: auto;
-        height: auto;
-        overflow-y: visible;
     }
 }
 
@@ -355,144 +161,12 @@ footer a:hover {
 }
 
 /* =============================================================================
-   Content, Player & Video Styles
+   Page-specific styles have been moved to:
+     - /css/sobre.css  (about-box, related rules)
+     - /css/programacao.css  (schedule-grid and its overrides)
+     - /css/index.css  (index content & player-container)
+     - /css/contato.css (contact page rules)
 ============================================================================= */
-.content {
-    position: absolute;
-    top: 5vh;
-    bottom: 7vh;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    padding-bottom: 80px;
-}
-
-.player-container {
-    width: 90%;
-    max-width: 800px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    margin: auto;
-    flex-shrink: 0;
-}
-
-video {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    display: block;
-    object-fit: contain;
-}
-
-/* =============================================================================
-   Schedule Grid Styles
-============================================================================= */
-.schedule-grid {
-    margin-top: 20px;
-    background-color: #333;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 90%;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    white-space: nowrap;
-    max-height: none;
-    transition: all 0.3s ease;
-    height: 600px;
-    overflow-y: auto;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.schedule-grid::-webkit-scrollbar {
-    width: 12px;
-}
-
-.schedule-grid::-webkit-scrollbar-track {
-    background: #333;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px grey;
-}
-
-.schedule-grid::-webkit-scrollbar-thumb {
-    background: #4CAF50;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px grey;
-    transition: background-color 0.3s ease;
-}
-
-.schedule-grid::-webkit-scrollbar-thumb:hover {
-    background: #388E3C;
-}
-
-.schedule-grid .grid-header,
-.schedule-grid .grid-row {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    white-space: nowrap;
-}
-
-.schedule-grid .grid-header {
-    position: sticky;
-    top: 0;
-    background-color: #333;
-    z-index: 10;
-}
-
-.schedule-grid .grid-header {
-    position: static;
-    z-index: auto;
-    background-color: #333;
-    font-weight: bold;
-}
-
-.schedule-grid .grid-row:last-child {
-    border-bottom: none;
-}
-
-/* =============================================================================
-   Landscape Adjustments (Mobile Landscape)
-============================================================================= */
-@media (max-width: 600px) and (orientation: landscape) {
-    .player-container {
-        width: 100vw;
-        max-width: 100%;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    video {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        object-fit: contain;
-    }
-}
-
-/* =============================================================================
-   Video Controls Override (WebKit)
-============================================================================= */
-video::-webkit-media-controls-timeline-container,
-video::-webkit-media-controls-current-time-display,
-video::-webkit-media-controls-time-remaining-display {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
 
 /* =============================================================================
    Navigation Link Styles
@@ -665,7 +339,7 @@ nav.nav-desktop ul li a.active::before {
     background-color: #00FF00;
 }
 
-.side-menu ul li a.active::before {
+side-menu ul li a.active::before {
     width: 8px;
     height: 8px;
     background-color: #FFFF00;
@@ -729,190 +403,6 @@ nav.nav-desktop ul li a.active::before {
 
     .logo img {
         max-height: 70px;
-    }
-}
-
-/* =============================================================================
-   About Box Component
-============================================================================= */
-.about-box {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 800px;
-    background-color: #333;
-    padding: 25px;
-    border-radius: 8px;
-    color: #fff;
-    margin: auto;
-    box-sizing: border-box;
-    gap: 20px;
-}
-
-.about-content {
-    flex: 1;
-}
-
-.about-content h1 {
-    margin: 0 0 15px 0;
-    font-size: 1.4em;
-    line-height: 1.2;
-}
-
-.about-content p {
-    margin: 0 0 12px 0;
-    line-height: 1.5;
-    font-size: 1em;
-}
-
-.about-image {
-    flex: 0 0 35%;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    max-height: 250px;
-    object-fit: cover;
-}
-
-@media (max-width: 600px) {
-    .about-box {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px; /* Reduce padding */
-        margin-top: 13vh; /* Adjust to be below the header */
-        margin-bottom: 7vh; /* Adjust to be above the footer */
-    }
-
-    .about-image {
-        width: 100%;
-        margin-bottom: 0px;
-    }
-
-    .about-content {
-        width: 100%;
-        margin-bottom: 10px; /* Add margin to separate text from image */
-    }
-}
-
-/* =============================================================================
-   Index Scheduler Override
-============================================================================= */
-.index .schedule-grid {
-    overflow-x: visible;
-    white-space: normal;
-}
-
-/* =============================================================================
-   Rounded Image Component
-============================================================================= */
-.rounded-image img {
-  width: 44%;
-  display: block;
-  margin: 20px auto;
-  border-radius: 5px;
-}
-
-/* =============================================================================
-   Contact Page Styles
-============================================================================= */
-.contact-form-container,
-.contact-info {
-  flex: 1;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 8px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.contact-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-wrapper {
-    width: 90%;
-    max-width: 400px;
-}
-
-.contact-info {
-    background-color: #333;
-    color: #fff;
-    border-radius: 8px;
-    padding: 25px;
-}
-
-@media (max-width: 600px) {
-    .contact-content {
-        position: relative;
-        top: -5vh;
-        padding: 0;
-    }
-
-    .contact-wrapper {
-        width: calc(100% - 20px);
-    }
-
-    .contact-info {
-        padding: 15px;
-    }
-
-    .contact-info h2 {
-        font-size: 1.2em;
-        margin: 0 0 10px 0;
-        text-align: center;
-    }
-
-    .contact-info p {
-        font-size: 0.9em;
-        margin: 8px 0;
-        line-height: 1.4;
-    }
-
-    .map-container {
-        margin-top: 12px;
-        height: 180px;
-    }
-
-    .map-container iframe {
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-    }
-}
-
-@media (max-width: 600px) {
-  .contact-wrapper {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 600px) {
-    .schedule-grid {
-        height: 400px;
-        margin-top: 70px;
-        width: 90%;
-        margin-bottom: 60px;
-        top: 43%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-@media (min-width: 601px) {
-    .schedule-grid {
-        height: 600px;
-        width: 80%;
-        max-width: 800px;
-        margin: 20px auto;
-        top: 50%;
-        transform: translate(-50%, -50%);
     }
 }
 
