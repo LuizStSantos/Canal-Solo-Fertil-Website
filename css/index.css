@@ -1,5 +1,5 @@
 .index .content {
-    position: absolute;
+    position: relative;
     top: 5vh;
     bottom: 7vh;
     left: 0;
@@ -9,6 +9,11 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 13vh;
+    margin-bottom: 7vh;
+    height: auto;
 }
 
 .player-container {
@@ -46,19 +51,22 @@ video::-webkit-media-controls-time-remaining-display {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    width: 90%;
+    width: 81%;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+    margin: 20px auto;
     overflow-x: auto;
     white-space: nowrap;
     max-height: none;
     transition: all 0.3s ease;
-    height: 600px;
+    height: 170px;
     overflow-y: auto;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    
 }
 
 .schedule-grid::-webkit-scrollbar {
@@ -100,46 +108,32 @@ video::-webkit-media-controls-time-remaining-display {
 }
 
 
-@media (min-width: 601px) {
-    .index .schedule-grid {
-        position: relative;
-        height: auto;
-        width: 81%;
-        margin: 10px auto;
-        top: auto;
-        transform: none;
-        left: auto;
-    }
-
+@media (max-width: 600px) {
     .index .content {
-        display: flex;
-        flex-direction: column;
+        position: relative;
+        padding: 15px;
+        margin-top: 0vh;
+        margin-bottom: 5vh;
         align-items: center;
-        gap: 20px;
-        padding: 20px;
-        margin-top: 13vh;
+        justify-content: center;
         height: auto;
-        overflow: visible;
+        left: 0;
+        right: 0;
+        gap: 15px;
     }
 
     .index .player-container {
-        width: 80%;
-        max-width: 800px;
+        width: 90%;
         margin: 0 auto;
     }
-}
 
-@media (max-width: 600px) {
     .index .schedule-grid {
+        position: relative;
         height: 170px;
-        margin-top: 5%;
-        width: 82%;
-        margin-bottom: 60px;
-        top: 70%;
-        overflow: visible;
-        transform: translate(-50%, -50%);
-    }
-    .index .player-container {
-        margin-top: 40%;
+        width: 90%;
+        margin: 20px auto;
+        transform: none;
+        left: auto;
+        top: auto;
     }
 }

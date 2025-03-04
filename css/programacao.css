@@ -1,4 +1,3 @@
-/* Content wrapper for proper centering */
 body {
     height: 100vh;
     display: flex;
@@ -7,17 +6,16 @@ body {
 
 .content {
     position: relative;
-    margin-top: 17vh; /* Aumentado para evitar sobreposição com o header */
+    margin-top: 17vh;
     margin-bottom: 7vh;
-    min-height: calc(100vh - 22vh); /* Ajustado para o novo margin-top */
+    min-height: calc(100vh - 22vh);
     display: flex;
-    align-items: flex-start; /* Mudado para flex-start */
+    align-items: flex-start;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Schedule Grid Styles */
 .schedule-grid {
     margin-top: 20px;
     background-color: #333;
@@ -26,7 +24,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -38,7 +36,8 @@ body {
     overflow-y: auto;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .schedule-grid::-webkit-scrollbar {
@@ -87,18 +86,6 @@ body {
 
 .schedule-grid .grid-row:last-child {
     border-bottom: none;
-}
-
-/* Add these styles moved from styles.css */
-@media (min-width: 601px) {
-    .schedule-grid {
-        height: 600px;
-        width: 100%;
-        max-width: 800px;
-        margin: 50px auto;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
 }
 
 @media (max-width: 600px) {

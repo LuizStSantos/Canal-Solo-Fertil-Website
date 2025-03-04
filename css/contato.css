@@ -1,12 +1,18 @@
 .contact-form-container,
 .contact-info {
-  flex: 1;
+  display: 1;
   padding: 20px;
   background-color: #333;
   color: #fff;
   border-radius: 8px;
   box-sizing: border-box;
-  width: 100%;
+  width: 25%;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 20px;
 }
 .contact-content {
   display: flex;
@@ -20,36 +26,54 @@
 .contact-info {
   padding: 25px;
 }
-/* Responsive adjustments for contact page */
+
+.contact-form-container::-webkit-scrollbar,
+.contact-info::-webkit-scrollbar {
+    width: 12px;
+}
+
+.contact-form-container::-webkit-scrollbar-track,
+.contact-info::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+}
+
+.contact-form-container::-webkit-scrollbar-thumb,
+.contact-info::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container::-webkit-scrollbar-thumb:hover,
+.contact-info::-webkit-scrollbar-thumb:hover {
+    background: #388E3C;
+}
+
 @media (max-width: 600px) {
-  .contact-content {
-    top: -5vh;
-    padding: 0;
-  }
-  .contact-wrapper {
-    width: calc(100% - 20px);
-    flex-direction: column;
-  }
+  .contact-form-container,
   .contact-info {
+    transform: none;
+    flex-direction: column;
+    max-width: 350px;
+    overflow-y: auto;
+    margin-right: auto;
+    margin-left: auto;
+    max-height: none;
+    padding: 15px;
+    width: 100%;
+    height: 450px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+  .contact-form-container {
     padding: 15px;
   }
-  .contact-info h2 {
-    font-size: 1.2em;
-    margin: 0 0 10px;
-    text-align: center;
-  }
-  .contact-info p {
-    font-size: 0.9em;
-    margin: 8px 0;
-    line-height: 1.4;
-  }
-  .map-container {
-    margin-top: 12px;
-    height: 180px;
-  }
-  .map-container iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
+  .contact-info {
+    padding: 20px;
   }
 }
