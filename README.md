@@ -19,16 +19,27 @@ The **Canal Solo Fértil Website** showcases the brand and provides comprehensiv
 ## Project Structure 🗂️
 ```
 /home/user/Documents/Canal-Solo-Fertil-Website
-├── css
-│   └── styles.css
-├── data
+├── css/
+│   ├── styles.css      # Global styles
+│   ├── index.css       # Homepage styles
+│   ├── programacao.css # Programming page styles
+│   ├── sobre.css       # About page styles
+│   └── contato.css     # Contact page styles
+├── data/
 │   └── program.json
-├── js
+├── js/
 │   └── scripts.js
+├── src/
+│   └── img/
+│       ├── background.jpg
+│       ├── icon.png
+│       ├── logo.png
+│       └── turnkeytv.jpg
 ├── index.html
 ├── sobre.html
 ├── programacao.html
-└── contato.html
+├── contato.html
+└── README.md
 ```
 
 ## Setup Instructions 🚀
