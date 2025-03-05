@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("../src/img/background.jpg") no-repeat center center fixed;
+    background: url("../src/img/background.webp") no-repeat center center fixed;
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -152,7 +152,7 @@ footer p {
 }
 
 footer a {
-    color: #007BFF;
+    color: #FFFF00;
     text-decoration: none;
 }
 
