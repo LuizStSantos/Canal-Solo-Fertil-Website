@@ -5,16 +5,20 @@
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
-    
+    ExpiresByType image/gif "access plus 1 year"
+
     # CSS e JavaScript
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
-    
-    # Vídeos
-    ExpiresByType video/mp4 "access plus 1 year"
-    ExpiresByType video/webm "access plus 1 year"
-    
-    # Outros (ex.: manifest)
+
+    # Fonts
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+
+    # JSON
     ExpiresByType application/json "access plus 1 week"
 </IfModule>
