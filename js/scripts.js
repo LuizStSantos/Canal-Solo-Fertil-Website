@@ -2,19 +2,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('player');
     if (video) {
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource('https://canalsolofertil.live/memfs/dd19a992-2e7c-4ffd-97f6-fde810284756.m3u8');
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                video.play();
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = 'https://canalsolofertil.live/memfs/dd19a992-2e7c-4ffd-97f6-fde810284756.m3u8';
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-            });
-        }
+        loadHlsScript().then(() => {
+            // Initialize HLS video player after hls.js is loaded
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(video.querySelector('source').src);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play();
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = video.querySelector('source').src;
+                video.addEventListener('loadedmetadata', function() {
+                    video.play();
+                });
+            }
+        });
     }
 
 /* ========= Schedule Grid Control ========= */
@@ -78,3 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => console.error('Error loading program schedule:', error));
 });
+
+function loadHlsScript() {
+    return new Promise(function(resolve, reject) {
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/hls.js@latest";
+        script.defer = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
